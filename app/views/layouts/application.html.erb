@@ -4,12 +4,29 @@
     <title>RenFa</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/de5eed1ebf.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
-  </body>
+
+    <header>
+      <nav>
+        <!-- ユーザがログインしているか調べる -->
+        <% if user_signed_in? %>
+          <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
+          <%= link_to 'マイページ', user_path(current_user.id) %> |
+          <%= link_to "ログアウト", sign_out_pathclass: 'glyphicon glyphicon-log-out logout' %>
+        <% else %>
+          <%= link_to "サインイン", new_user_registration_path, class: 'glyphicon glyphicon-edit sign_up' %> |
+          <%= link_to "ログイン", new_user_session_path, class: 'glyphicon glyphicon-log-in sign_in' %>
+        <% end %>
+      </nav>
+    </header>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <%= yield %>
+</body>
 </html>
