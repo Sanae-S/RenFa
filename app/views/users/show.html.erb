@@ -1,5 +1,27 @@
-<div class="container">
-  <h2>会員詳細</h2>
-  <%= link_to '編集する', edit_user_path(@user.id), class: "btn btn-primary" %>
-  <%= link_to 'パスワードを変更する', edit_user_registration_path, class: "btn btn-primary" %>
+<div class="user-show">
+  <div class="user-show__title">
+    <h2>会員詳細</h2>
+  </div>
+  <table class="user-show__table">
+    <tr>
+      <th>名前</th>
+      <td><%= @user.name %></td>
+    </tr>
+    <tr>
+      <th>email</th>
+      <td><%= @user.email %></td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td><%= @user.address %></td>
+    </tr>
+    <tr>
+      <th>紹介文</th>
+      <td><%= @user.user_info %></td>
+    </tr>
+  </table>
+  <div class="buttmn">
+    <%= link_to '編集する', edit_user_path(@user.id), class: "button btn btn-primary" %>
+    <%= link_to 'パスワードを変更する', edit_user_registration_path, class: "button btn btn-primary" %>
+  </div>
 </div>

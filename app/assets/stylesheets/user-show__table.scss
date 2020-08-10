@@ -1,0 +1,13 @@
+.user-show{ 
+  display: flex;
+  flex-direction: column;
+
+  &__table{
+    font-size: 20px;
+    justify-content: space-around;
+   }
+   .button{
+    min-width: 100px;
+    max-height: 35px;
+  }
+}
