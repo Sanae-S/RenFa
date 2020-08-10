@@ -19,7 +19,7 @@
             <li><%= link_to 'マイページ', user_path(current_user.id), class: "header-nav-item" %> </li>
             <li><%= link_to "ログアウト", logout_path, class: 'glyphicon glyphicon-log-out logout header-nav-item' %></li>
           <% else %>
-            <li><%= link_to "サインイン", new_user_registration_path, class: 'glyphicon glyphicon-edit sign_up header-nav-item' %> </li>
+            <li><%= link_to "会員登録", new_user_registration_path, class: 'glyphicon glyphicon-edit sign_up header-nav-item' %> </li>
             <li><%= link_to "ログイン", new_user_session_path, class: 'glyphicon glyphicon-log-in sign_in header-nav-item' %></li>
           <% end %>
         </ul>
