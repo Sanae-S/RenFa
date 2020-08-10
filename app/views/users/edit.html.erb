@@ -1,3 +1,28 @@
-<div class="container">
-  <h2>会員編集</h2>
+<div class="user-edit">
+  <h2 class="user-edit__title">会員編集</h2>
+  <%= form_for (@user) do |f| %>
+    <div class="user-edit__form form-horizontal">
+    <div class="form-group">
+      <label class="col-sm-2 control-label" for="InputName">名前</label>
+        <%= f.text_field :name, class:"col-sm-10" %>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label" for="InputEmail">メールアドレス</label>
+        <%= f.email_field :email, class:"col-sm-10" %>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label" for="InputAddress">住所</label>
+       <%= f.text_field :address, class:"col-sm-10" %>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label" for="InputUser_info">紹介文</label>
+        <%= f.text_area :user_info, class:"col-sm-10" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit "送信", class:"btn btn-default" %>
+    </div>
+  </div>
+  <% end %>
 </div>
