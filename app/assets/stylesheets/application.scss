@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";  /*ここを追加*/
+@import "bootstrap";            /*ここを追加*/
+
+.button{
+  min-width: 100px;
+  max-height: 35px;
+}
