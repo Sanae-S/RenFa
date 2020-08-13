@@ -16,6 +16,7 @@
           <!-- ユーザがログインしているか調べる -->
           <% if user_signed_in? %>
             <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
+            <li><%= link_to '新規投稿', new_post_image_path, class: "header-nav-item" %> </li>
             <li><%= link_to 'マイページ', user_path(current_user.id), class: "header-nav-item" %> </li>
             <li><%= link_to "ログアウト", logout_path, class: 'glyphicon glyphicon-log-out logout header-nav-item' %></li>
           <% else %>
