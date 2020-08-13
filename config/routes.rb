@@ -10,6 +10,6 @@ Rails.application.routes.draw do
     get "logout", :to => "users/sessions#destroy"
   end
 resources :users
-  
+put "/users/:id/hide" => "users#hide", as: 'users_hide'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

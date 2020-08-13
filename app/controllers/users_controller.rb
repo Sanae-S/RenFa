@@ -16,6 +16,21 @@ class UsersController < ApplicationController
        render :edit
     end
   end
+
+  def show
+        @user = User.find(params[:id])
+    end
+
+    def hide
+        @user = User.find(params[:id])
+        #is_deletedカラムにフラグを立てる
+        @user.update(is_deleted: true)
+        #ログアウトさせる
+        reset_session
+        flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+        redirect_to root_path
+    end
+
 private
   def user_params
   	params.require(:user).permit(:name, :user_info, :email, :address, :admin)
