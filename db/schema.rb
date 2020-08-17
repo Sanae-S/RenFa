@@ -14,9 +14,9 @@ ActiveRecord::Schema.define(version: 2020_08_13_191517) do
 
   create_table "post_images", force: :cascade do |t|
     t.string "animal_name", default: "", null: false
-    t.string "image_id", default: "", null: false
+    t.string "image_id"
     t.text "introduction"
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
