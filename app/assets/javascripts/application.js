@@ -16,3 +16,20 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+// 表示できない
+// $(function(){
+//     $('#file').change(function(){
+//         $('img').remove();
+//         var file = $(this).prop('files')[0];
+//         if(!file.type.match('image.*')){
+//             return;
+//         }
+//         var fileReader = new FileReader();
+//         fileReader.onloadend = function() {
+//             $('#result').html('<img src="' + fileReader.result + '" width="500" height="300">');
+//         }
+//         fileReader.readAsDataURL(file);
+//     });
+// });
