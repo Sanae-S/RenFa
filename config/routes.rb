@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 resources :users
 put "/users/:id/hide" => "users#hide", as: 'users_hide'
 
-root 'post_images#index'
-resources :post_images
 
+resources :post_images
+root 'post_images#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
