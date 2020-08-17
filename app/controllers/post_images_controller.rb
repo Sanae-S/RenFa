@@ -9,8 +9,9 @@ class PostImagesController < ApplicationController
     @post_image.user_id = current_user.id
      if @post_image.save
        redirect_to post_images_path
-   else
+     else
    	  render :new
+   	end
   end
 
   def index
@@ -29,6 +30,9 @@ class PostImagesController < ApplicationController
     @post_image = PostImage.find(params[:id])
     if @post_image.update(post_image_params)
     	redirect_to post_image_path(@post_image)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -37,10 +41,8 @@ class PostImagesController < ApplicationController
     redirect_to root
   end
 
-private
+  private #複数画像をアップするために配列にする。, :images[]
   def post_image_params
     params.require(:post_image).permit(:animal_name, :image, :introduction)
   end
-
 end
-#複数画像をアップするために配列にする。, :images[]

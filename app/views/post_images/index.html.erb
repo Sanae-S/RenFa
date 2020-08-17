@@ -1,8 +1,33 @@
 <div class="sidebar">
   <div class=""></div>
 </div>
-<div class="post-image-index">
-  <div class="">
-    
-  </div>
+<div class="post-image-item">
+  <% @post_images.each do |post_image| %>
+    <div class="post-image-item__image">
+      <%= attachment_image_tag post_image, :image, format: "jpeg", width:"400", height:"500", fallback: "no_image.jpg" %>
+    </div>
+    <div class="post-image-item__user-name">
+      <% link_to user_path(post_image.user) do %>
+        <%= post_image.user.name %>
+      <% end %>
+    </div>
+    <div class="post-image-item__category">
+       <p>category</p>
+    </div>
+    <div class="post-image-item__category">
+      <%= post_image.animal_name %>
+    </div>
+    <div class="post-image-item__introduction">
+      <%= post_image.introduction %>
+    </div>
+    <div class="post-image-item__tag">
+      <p>tag</p>
+    </div>
+    <div class="post-image-item__favorite">
+      <p>いいね♡</p>
+    </div>
+    <div class="post-image-item__comment">
+      <p>コメント 件</p>
+    </div>
+  <% end %>
 </div>
