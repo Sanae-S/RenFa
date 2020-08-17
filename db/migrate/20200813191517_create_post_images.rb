@@ -3,7 +3,7 @@ class CreatePostImages < ActiveRecord::Migration[5.2]
     create_table :post_images do |t|
       t.string :animal_name, null: false, default: ""
       t.string :image_id, null: false, default: ""
-      t.text :introduction, null: false
+      t.text :introduction
       t.integer :user_id, null: false, default: ""
 
       t.timestamps
