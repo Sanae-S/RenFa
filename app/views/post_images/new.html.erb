@@ -1,9 +1,9 @@
 <div class="sidebar">
   <div class=""></div>
 </div>
+<%= form_for(@post_image, url: post_images_path) do |f| %>
 <div class="post-image-form form-horizontal">
   <div class="post-image-form form-group">
-    <%= form_for(@post_image, url: post_images_path) do |f| %>
     <% if @post_image.errors.any? %>
     <div id="error_explanation">
       <h2><%= @post_image.errors.count %>件のエラーが発生しました。</h2>
@@ -39,5 +39,6 @@
     <div class="col-sm-offset-2 col-sm-10">
       <%= f.submit "送信", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
     </div>
-<% end %>
+  </div>
 </div>
+<% end %>
