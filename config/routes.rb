@@ -9,11 +9,14 @@ Rails.application.routes.draw do
     get "login", :to => "users/sessions#new"
     get "logout", :to => "users/sessions#destroy"
   end
+
+root 'post_images#index'
+
 resources :users
 put "/users/:id/hide" => "users#hide", as: 'users_hide'
 
 
 resources :post_images
-root 'post_images#index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
