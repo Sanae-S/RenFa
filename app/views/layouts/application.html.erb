@@ -23,7 +23,7 @@
             <li><%= link_to 'マイページ', user_path(current_user.id), class: "header-nav-item" %> </li>
             <li><%= link_to "ログアウト", logout_path, class: 'glyphicon glyphicon-log-out logout header-nav-item' %></li>
           <% else %>
-            <li>about</li>
+            <li><%= link_to 'about', homes_about_path, class: "header-nav-item" %></li>
             <li>Dogs</li>
             <li>Cats</li>
             <li>Others</li>
