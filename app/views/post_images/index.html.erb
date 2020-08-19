@@ -1,10 +1,10 @@
 <div class="sidebar">
-  <div class=""></div>
+  <div class="">a</div>
 </div>
 <div class="post-image-item">
   <% @post_images.each do |post_image| %>
     <div class="post-image-item__image">
-      <%= attachment_image_tag post_image, :image, format: "jpeg", width:"200", height:"300", fallback: "no_image.jpg" %>
+      <%= attachment_image_tag post_image, :image, format: "jpeg", width:"500", height:"400" %>
     </div>
     <div class="post-image-item__user-name">
       <%= link_to user_path(post_image.user) do %>
