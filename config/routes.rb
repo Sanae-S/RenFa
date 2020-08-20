@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'categories/index'
-  get 'categories/edit'
+
   get 'homes/about'
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
@@ -23,6 +22,8 @@ resources :post_images do
   resources :comments, only: [:create, :destroy]
 end
 root 'post_images#index'
+
+resources :categories, except: [:new, :show]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
