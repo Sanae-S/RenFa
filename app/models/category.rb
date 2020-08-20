@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
 
-	belongs_to :post_image
-	
+	has_many :post_images, dependent: :destroy
+
 end

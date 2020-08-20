@@ -46,6 +46,6 @@ class PostImagesController < ApplicationController
 
   private #複数画像をアップするために配列にする。, :images[]
   def post_image_params
-    params.require(:post_image).permit(:animal_name, :image, :introduction)
+    params.require(:post_image).permit(:animal_name, :image, :introduction, :category_id)
   end
 end
