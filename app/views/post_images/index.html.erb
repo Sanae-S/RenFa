@@ -8,20 +8,25 @@
         <%= attachment_image_tag post_image, :image, format: "jpeg", width:"500", height:"400" %>
       </div>
       <div class="post-image-item__user-name">
+        <label >投稿者:</label>
         <%= link_to user_path(post_image.user) do %>
           <%= post_image.user.name %>
         <% end %>
       </div>
       <div class="post-image-item__category">
+        <label >カテゴリー:</label>
          <p>category</p>
       </div>
       <div class="post-image-item__category">
+        <label >ペットのお名前:</label>
         <%= post_image.animal_name %>
       </div>
       <div class="post-image-item__introduction">
+        <label >紹介文:</label>
         <%= post_image.introduction %>
       </div>
       <div class="post-image-item__tag">
+        <label >タグ:</label>
         <p>tag</p>
       </div>
       <div class="post-image-item__favorite">

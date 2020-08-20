@@ -1,0 +1,13 @@
+.about{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__visual{
+    width: 800px;
+    height: 500px;
+    background-image: image-url("tatiana-rodriguez-V2k_xw-miO0-unsplash.jpg");
+    background-size: cover;
+  }
+}
