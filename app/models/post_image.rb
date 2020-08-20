@@ -3,6 +3,7 @@ class PostImage < ApplicationRecord
 	belongs_to :user
 	attachment :image
 	has_many :comments, dependent: :destroy
+	has_many :categories, dependent: :destroy
 
 	# introduction がそんざいしなければいけない
 	validates :introduction, presence: true
