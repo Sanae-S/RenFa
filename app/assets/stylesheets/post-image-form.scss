@@ -1,0 +1,12 @@
+.post-image-form{
+  display: flex;
+  flex-basis: 600px auto;
+  align-items: center;
+  flex-direction: column;
+
+  &__image{
+  width:100%;
+  max-width: 500px;
+  max-haight: auto;
+  }
+}

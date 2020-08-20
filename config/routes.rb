@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'homes/about'
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'
@@ -9,8 +10,17 @@ Rails.application.routes.draw do
     get "login", :to => "users/sessions#new"
     get "logout", :to => "users/sessions#destroy"
   end
+
+root 'post_images#index'
+
 resources :users
 put "/users/:id/hide" => "users#hide", as: 'users_hide'
+
+
+resources :post_images do
+  resources :comments, only: [:create, :destroy]
+end
 root 'post_images#index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

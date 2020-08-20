@@ -11,19 +11,26 @@
   <body>
 
     <header>
-      <div class="container">
+      <div class="logo">logo</div>
         <ul class="header-nav nav nav-pills">
           <!-- ユーザがログインしているか調べる -->
           <% if user_signed_in? %>
             <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
+            <li><%= link_to '新規投稿', new_post_image_path, class: "header-nav-item" %> </li>
+            <li>Dogs</li>
+            <li>Cats</li>
+            <li>Others</li>
             <li><%= link_to 'マイページ', user_path(current_user.id), class: "header-nav-item" %> </li>
             <li><%= link_to "ログアウト", logout_path, class: 'glyphicon glyphicon-log-out logout header-nav-item' %></li>
           <% else %>
+            <li><%= link_to 'about', homes_about_path, class: "header-nav-item" %></li>
+            <li>Dogs</li>
+            <li>Cats</li>
+            <li>Others</li>
             <li><%= link_to "会員登録", new_user_registration_path, class: 'glyphicon glyphicon-edit sign_up header-nav-item' %> </li>
             <li><%= link_to "ログイン", new_user_session_path, class: 'glyphicon glyphicon-log-in sign_in header-nav-item' %></li>
           <% end %>
         </ul>
-      </div>
     </header>
   <div class="container">
   <p class="notice"><%= notice %></p>

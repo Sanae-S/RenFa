@@ -1,0 +1,43 @@
+<div class="sidebar">
+  <div class="">a</div>
+</div>
+<div class="index">
+  <% @post_images.each do |post_image| %>
+    <div class="post-image-item">
+      <div class="post-image-item__image">
+        <%= attachment_image_tag post_image, :image, format: "jpeg", width:"500", height:"400" %>
+      </div>
+      <div class="post-image-item__user-name">
+        <label >投稿者:</label>
+        <%= link_to user_path(post_image.user) do %>
+          <%= post_image.user.name %>
+        <% end %>
+      </div>
+      <div class="post-image-item__category">
+        <label >カテゴリー:</label>
+         <p>category</p>
+      </div>
+      <div class="post-image-item__category">
+        <label >ペットのお名前:</label>
+        <%= post_image.animal_name %>
+      </div>
+      <div class="post-image-item__introduction">
+        <label >紹介文:</label>
+        <%= post_image.introduction %>
+      </div>
+      <div class="post-image-item__tag">
+        <label >タグ:</label>
+        <p>tag</p>
+      </div>
+      <div class="post-image-item__favorite">
+        <p>いいね♡</p>
+      </div>
+      <div class="post-image-item__comment">
+        <p>コメント 件</p>
+      </div>
+      <div class="post-image-item__show">
+      	<%= link_to "詳細", post_image_path(post_image) %>
+      </div>
+    </div>
+  <% end %>
+</div>
