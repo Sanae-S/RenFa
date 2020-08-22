@@ -24,7 +24,7 @@ class Admin::CategoriesController < ApplicationController
 
   def update
     if @category.update(category_params)
-      redirect_to categories_path
+      redirect_to admin_categories_path
     else
       render 'edit'
     end

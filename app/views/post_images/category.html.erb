@@ -2,29 +2,29 @@
   <div class="">a</div>
 </div>
 <div class="index">
-  <% @post_images.each do |post_image| %>
+  <h2><%= @category_item.category_name %>一覧（全<%= @category_items.count %>件）</h2>
+  <% @category_items.each do |category_item| %>
     <div class="post-image-item">
       <div class="post-image-item__image">
-        <%= attachment_image_tag post_image, :image, format: "jpeg", width:"500", height:"400" %>
+        <%= attachment_image_tag category_item, :image, format: "jpeg", width:"500", height:"400" %>
       </div>
       <div class="post-image-item__user-name">
         <label >投稿者:</label>
-        <%= link_to user_path(post_image.user) do %>
-          <%= post_image.user.name %>
+        <%= link_to user_path(category_item.user) do %>
+          <%= category_item.user.name %>
         <% end %>
       </div>
       <div class="post-image-item__category">
         <label >カテゴリー:</label>
-        <!-- コンソールではでるpost_image.category.category_name -->
-         <%= post_image.category_id %>
+         <%= category_item.category_id %>
       </div>
       <div class="post-image-item__category">
         <label >ペットのお名前:</label>
-        <%= post_image.animal_name %>
+        <%= category_item.animal_name %>
       </div>
       <div class="post-image-item__introduction">
         <label >紹介文:</label>
-        <%= post_image.introduction %>
+        <%= category_item.introduction %>
       </div>
       <div class="post-image-item__tag">
         <label >タグ:</label>
@@ -37,7 +37,7 @@
         <p>コメント 件</p>
       </div>
       <div class="post-image-item__show">
-      	<%= link_to "詳細", post_image_path(post_image) %>
+      	<%= link_to "詳細", post_image_path(category_item) %>
       </div>
     </div>
   <% end %>

@@ -23,12 +23,13 @@ resources :post_images do
 end
 root 'post_images#index'
 
-resources :categories, except: [:new, :show]
+resources :categories, only: [:index]
 
 namespace :admin do
   resources :categories
   resources :users
 end
 
+get '/:categoty_id/post_images' => 'post_images#category'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
