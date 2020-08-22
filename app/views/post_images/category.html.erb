@@ -2,7 +2,7 @@
   <div class="">a</div>
 </div>
 <div class="index">
-  <h2><%= @category_item.category_name %>一覧（全<%= @category_items.count %>件）</h2>
+  <h2><%= @category.category_name %>一覧（全<%= @category_items.count %>件）</h2>
   <% @category_items.each do |category_item| %>
     <div class="post-image-item">
       <div class="post-image-item__image">
@@ -16,7 +16,7 @@
       </div>
       <div class="post-image-item__category">
         <label >カテゴリー:</label>
-         <%= category_item.category_id %>
+         <%= category_item.category.category_name %>
       </div>
       <div class="post-image-item__category">
         <label >ペットのお名前:</label>
