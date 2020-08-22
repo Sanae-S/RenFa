@@ -11,18 +11,23 @@
       <th>メールアドレス</th>
       <td><%= @user.email %></td>
     </tr>
-    <tr>
-      <th>住所</th>
-      <td><%= @user.address %></td>
-    </tr>
+    <% if current_user == @user || current_user.admin? %>
+      <tr>
+        <th>住所</th>
+          <td><%= @user.address %></td>
+      </tr>
+    <% end %>
     <tr>
       <th>紹介文</th>
       <td><%= @user.user_info %></td>
     </tr>
   </table>
+  <div class="DM">
+    <%= render "contact" %>
+  </div>
   <div class="buttmn">
     <%= link_to '編集する', edit_user_path(@user.id), class: "button btn btn-primary" %>
-    <%= link_to 'パスワードを変更する', edit_user_registration_path, class: "button btn btn-primary" %>
+    |<%= link_to 'パスワードを変更する', edit_user_registration_path, class: "button btn btn-primary" %>
     <% if user_signed_in? && @user.id == current_user.id %>
         <%= link_to "退会", users_hide_path(current_user), method: :put, "data-confirm" => "本当に退会しますか？", class: "button btn btn-danger" %>
 <% end %>

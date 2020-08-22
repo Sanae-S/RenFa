@@ -17,4 +17,8 @@ put "/users/:id/hide" => "users#hide", as: 'users_hide'
 resources :post_images
 root 'post_images#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+resources :rooms, only: [:index, :create, :show]
+resources :messages, only: [:create, :edit, :update, :destroy]
+
 end
