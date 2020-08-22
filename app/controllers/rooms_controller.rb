@@ -16,6 +16,19 @@ class RoomsController < ApplicationController
         redirect_to room_path(@room.id)
     end
 
+    def show
+        @room = Room.find(params[:id])
+        #Entriesテーブルに情報があるか確認
+        if Entry.where(user_id: current_user.id, room_id: @room.id).present?
+        	#@roomの全てのメッセージを取得
+            @messages = @room.messages.includes(:user).order("created_at asc")
+            @message = Message.new
+            #@entriesに@roomに参加してる（Entriesテーブルでヒットした情報、またはエントリーしてる）ユーザーを取得
+            @entries = @room.entries
+        else
+            redirect_back(fallback_location: root_path)
+        end
+    end
 
     private
     def join_room_params

@@ -1,0 +1,41 @@
+<div class="left-button">
+  <%= link_to "戻る", root_path,class:"edit-link" %>
+</div>
+<h4 class="rooms-title">お迎えのための連絡</h4>
+<% @entries.each do |e| %>
+  <div class="user-name">
+  <strong>
+      <a class="rooms-user-link" href="/users/<%= e.user.id %>">
+        <%= e.user.name %>さん
+      </a>
+  </strong>
+  </div>
+<% end %>
+<hr>
+<div class="chats">
+  <div class="chat">
+    <% if @messages.present? %> <!-- メッセージが入っているか確認 -->
+      <% @messages.each do |m| %>
+        <div class="chat-box">
+          <div class="chat-hukidashi">
+            <strong><%= m.user.nickname %></strong><br>
+            <strong><%= m.message %></strong> <br>
+            <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="posts">
+    <!-- messages_controllerに情報を送るためmodelは@message、editアクションを発火させるパス"remote: true"でJS形式 -->
+    <%= form_with(model: @message, url: edit_message_path(m.id), remote: true, method: :get) do |f| %>
+    <!-- どのルームでやり取りしてるのかを判断するため、現在表示してるroom_idを送る。 -->
+      <%= f.hidden_field :room_id, value: @room.id %>
+      <%= f.submit "編集" %>
+    <% end %>
+    <%= form_with(model: @message, url: message_path(m.id), remote: true, method: :delete) do |f| %>
+      <%= f.hidden_field :room_id, value: @room.i %>
+      <%= f.submit "削除" %>
+    <% end %>
+  </div>
+</div>
