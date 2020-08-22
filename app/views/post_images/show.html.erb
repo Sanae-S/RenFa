@@ -1,5 +1,7 @@
 <div class="sidebar">
-  <div class=""></div>
+  <div class="sidebar__user_info">
+    <%= render 'users/user_info', user:@user %>
+  </div>
 </div>
 <div class="post-image-show">
   <div class="post-image-item">
@@ -14,7 +16,9 @@
       </div>
       <div class="post-image-item__category">
         <label >カテゴリー:</label>
-         <p>category</p>
+         <%= link_to category_post_items_path(@post_image.category_id) do %>
+          <%= @post_image.category.category_name %>
+        <% end %>
       </div>
       <div class="post-image-item__category">
         <label >ペットのお名前:</label>
@@ -31,9 +35,7 @@
       <div class="post-image-item__favorite">
         <p>いいね♡</p>
       </div>
-      <div class="post-image-item__comment">
-        <p>コメント 件</p>
-      </div>
+      
       <% if current_user == @user || current_user.admin? %>
         <div class="post-image-item__butmun">
           <%= link_to "Edit", edit_post_image_path(@post_image), class: "btn-sm btn-success edit_book_#{@post_image.id}" %>
@@ -41,5 +43,16 @@
           <%= link_to "Destroy", post_image_path(@post_image), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_book_#{@post_image.id}" %>
         </div>
       <% end %>
+      <div class="post-image-item__comment">
+        <h4>コメント</h4>
+        <div id="comments_area">
+      <!-- 投稿されたコメント一覧を詳細ページに表示するためのrender -->
+          <%= render partial: 'comments/index', locals: { comments: @comments } %>
+        </div>
+        <% if user_signed_in? %>
+      <!-- コメント入力欄を詳細ページに表示するためのrender -->
+          <%= render partial: 'comments/form', locals: { comment: @comment, post_image: @post_image } %>
+        <% end %>
+      </div>
     </div>
 </div>

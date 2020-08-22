@@ -1,0 +1,23 @@
+
+<div class="category-index">
+  <h3 class="caregory-new__label">カテゴリー一覧</h3>
+  <table class="category-index__table">
+    <thead>
+       <tr>
+         <th>カテゴリー名</th>
+       </tr>
+    </thead>
+
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td>
+          	<%#= link_to user_path(@post_image.user) do %>
+              <%= category.category_name %>
+            <%# end %>
+           </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

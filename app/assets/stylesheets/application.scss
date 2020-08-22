@@ -17,8 +17,13 @@
 @import "bootstrap";            /*ここを追加*/
 
 body{
+  display: flex;
+  flex-direction: column;
 	width:100%;
 	background-color: limegreen;
+	justify-content: space-between;
+	padding: 0;
+	merge: 0;
 }
 
 header{
@@ -26,3 +31,9 @@ header{
   height: 60px;
   background-color: orange;
 }
+.container{
+  display: flex;
+  flex-direction: row;
+  background-color: skyblue;
+  padding: 0;
+  }
