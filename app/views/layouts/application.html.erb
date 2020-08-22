@@ -11,8 +11,12 @@
   <body>
 
     <header>
-      <div class="logo">logo</div>
-        <ul class="header-nav nav nav-pills">
+      <div class="logo-image nav navbar-nav navbar-left">
+             <%= link_to root_path do %>
+               <%= image_tag "logo.png" %>
+             <% end %>
+          </div>
+        <ul class="header-nav nav navbar-nav navbar-right">
           <!-- ユーザがログインしているか調べる -->
           <% if user_signed_in? %>
             <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
@@ -32,13 +36,15 @@
           <% end %>
         </ul>
     </header>
-  <div class="container">
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <p class="error"><%= flash[:error] %></p>
+    <div class="flash">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <p class="error"><%= flash[:error] %></p>
+    </div>
+    <div class="container">
 
   <%= yield %>
 
-</div>
-</body>
+    </div>
+  </body>
 </html>

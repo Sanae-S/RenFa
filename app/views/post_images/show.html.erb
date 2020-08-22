@@ -1,5 +1,7 @@
 <div class="sidebar">
-  <div class=""></div>
+  <div class="sidebar__user_info">
+    <%= render 'users/user_info', user:@user %>
+  </div>
 </div>
 <div class="post-image-show">
   <div class="post-image-item">
@@ -14,7 +16,9 @@
       </div>
       <div class="post-image-item__category">
         <label >カテゴリー:</label>
-         <%= @post_image.category.category_name %>
+         <%= link_to category_post_items_path(@post_image.category_id) do %>
+          <%= @post_image.category.category_name %>
+        <% end %>
       </div>
       <div class="post-image-item__category">
         <label >ペットのお名前:</label>
