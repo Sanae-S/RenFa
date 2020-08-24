@@ -7,8 +7,12 @@ class PostImagesController < ApplicationController
 
   def create
     @post_image = PostImage.new(post_image_params)
+    #.split(nil)：送信されてきた値を、スペースで区切って配列化する
+    tag_list = params[:post_image][:tag_name].split(nil)
     @post_image.user_id = current_user.id
      if @post_image.save
+      #取得したタグの配列をデータベースに保存
+        @post.save_tag(tag_list)
        redirect_to post_images_path
      else
        render :new
@@ -18,6 +22,7 @@ class PostImagesController < ApplicationController
   def index
     @post_images = PostImage.all
     @categories = Category.all
+    @tag_list = Tag.all        #ビューでタグ一覧を表示するために全取得。
   end
 
   def show
@@ -25,6 +30,7 @@ class PostImagesController < ApplicationController
     @user = @post_image.user
     @comment = Comment.new
     @comments = @post_image.comments
+    @post_image_tags = @post_image.tags    #その投稿に紐付けられているタグの取得
   end
 
   def edit
