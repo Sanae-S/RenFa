@@ -41,7 +41,13 @@
       <%= f.text_area :introduction, class:"form-control", rows:"3", placeholder:"ここにコメント" %>
     </div>
   </div>
-
+  <br>
+  <div class="post-image-form__tag form-group">
+    <%= "スペースを入力することで複数のタグを付けることができます。" %>
+    <%= "例：音楽 文芸 スポーツ" %>
+    <%= f.text_field :tag_name %>
+  </div>
+  <br>
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
       <%= f.submit "送信", class:"btn btn-default" %>
