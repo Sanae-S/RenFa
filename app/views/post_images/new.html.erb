@@ -52,9 +52,8 @@
   <div class="post-image-form__tag form-group">
     <label class="col-sm-3 control-label">タグ</label>
     <div class="col-sm-9">
-      <p> スペースを入力することで複数のタグを付けることができます。</p>
-      <p> 例：柴犬 オス 子犬</p>
-      <%= f.text_field :tag_name %>
+      <p>スペースを挟むことで、複数のタグを登録できます。</p>
+      <%= f.text_field :tag_name, placeholder:"例：柴犬　オス　成犬" %>
     </div>
   </div>
   <br>

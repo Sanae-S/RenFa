@@ -26,7 +26,7 @@ class PostImage < ApplicationRecord
 # 古いタグを削除
 #post_image.tagsの配列から、Tag.find_byで検索して取得したtagを削除
     old_tags.each do |old|
-      self.post_image_tags.delete Tag.find_by(tag_name: old)
+      self.tags.delete Tag.find_by(tag_name: old)
     end
 
 # 新しいタグをデータベースに保存

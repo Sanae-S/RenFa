@@ -37,20 +37,18 @@ class PostImagesController < ApplicationController
 
   def edit
     @post_image = PostImage.find(params[:id])
-    @tag_list = @post_image.tags.pluck(:tag_name).join(/[[:blank:]]+/)
+    @tag_list = @post_image.tags.pluck(:tag_name).split(/[[:blank:]]+/)
   end
 
   def update
     @post_image = PostImage.find(params[:id])
     tag_list = params[:post_image][:tag_name].split(/[[:blank:]]+/)
-    respond_to do |format|
       if @post_image.update(post_image_params)
          @post_image.save_tag(tag_list)
          redirect_to post_image_path(@post_image)
       else
         render :edit
       end
-    end
   end
 
   def destroy
