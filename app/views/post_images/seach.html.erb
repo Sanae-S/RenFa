@@ -1,0 +1,13 @@
+<h2>投稿一覧</h2>
+
+<!-- タグリスト -->
+<% @tag_list.each do |list| %>
+  <%= link_to list.tag_name, tag_post_images_path(post_tag_id: list.id) %>
+  <%= "(#{list.posts.count})" %>
+  <br>
+<!-- タグによって絞り込んだ投稿一覧 -->
+  <p>タグが ─ <strong> #{@tag.tag_name}</strong> ─ の投稿一覧</p>
+<% end %>
+<br>
+
+<% render "index", post_images: @post_images, post_image_tags: @post_image.tags %>

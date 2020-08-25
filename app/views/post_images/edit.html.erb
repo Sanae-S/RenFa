@@ -41,7 +41,11 @@
       <%= f.text_area :introduction, class:"form-control", rows:"3" %>
     </div>
   </div>
-
+  <div class="post-image-form__tag form-group">
+    <%= "スペースを入力することで複数のタグを付けることができます。" %>
+    <%= "例：柴犬 オス 子犬" %>
+    <%= f.text_field :tag_name %>
+  </div>
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
       <%= f.submit "送信", class:"btn btn-default" %>

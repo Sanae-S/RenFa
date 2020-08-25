@@ -42,3 +42,14 @@ $(function() {
     reader.readAsDataURL(file);
   });
 });
+
+//フォームの全角英数字をフォーカスアウトで半角英数字に変換
+$(function(){
+  $('[id*="tag_name"]').change(function(){
+    var str = $(this).val();
+    str = str.replace( /[Ａ-Ｚａ-ｚ０-９－！”＃＄％＆’（）＝＜＞，．？＿［］｛｝＠＾～￥]/g, function(s) {
+      return String.fromCharCode(s.charCodeAt(0) - 65248);
+    });
+    $(this).val(str);
+  }).change();
+});

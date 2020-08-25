@@ -37,4 +37,9 @@ get '/category/:category_id/post_images'=> 'post_images#category', as:'category_
 resources :rooms, only: [:index, :create, :show]
 resources :messages, only: [:create, :edit, :update, :destroy]
 
+#タグによって絞り込んだ投稿を表示するアクションへのルーティング
+  resources :tags do
+    get 'post_images', to: 'post_images#search'
+  end
+
 end

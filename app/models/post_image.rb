@@ -14,9 +14,9 @@ class PostImage < ApplicationRecord
 	validates :animal_name, length: { minimum: 1 }
 
   def save_tag(sent_tags)
-  	#selfはクラス内部で書かれる場合、そのクラスのインスタンス変数の参照に利用される。
-  	#.pluck:1つのモデルで使用されているテーブルから,指定したカラムの値の配列を、対応するデータ型で返す.
-  	#createで保存した投稿に紐付いているタグが存在する場合、「タグの名前を配列として」全て取得
+    #selfはクラス内部で書かれる場合、そのクラスのインスタンス変数の参照に利用される。
+    #.pluck:1つのモデルで使用されているテーブルから,指定したカラムの値の配列を、対応するデータ型で返す.
+    #createで保存した投稿に紐付いているタグが存在する場合、「タグの名前を配列として」全て取得
     current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
     #投稿に存在するタグから、送信されてきたタグを除いたタグ
     old_tags = current_tags - sent_tags
@@ -26,21 +26,21 @@ class PostImage < ApplicationRecord
 # 古いタグを削除
 #post_image.tagsの配列から、Tag.find_byで検索して取得したtagを削除
     old_tags.each do |old|
-      self.post_image_tags.delete PostImageTag.find_by(post_image_tag_name: old)
+      self.post_image_tags.delete Tag.find_by(tag_name: old)
     end
 
 # 新しいタグをデータベースに保存
 #find_or_create_byは、オブジェクトが存在する場合は取得、なければ作成
     new_tags.each do |new|
-      new_post_image_tag = PostImageTag.find_or_create_by(post_image_tag_name: new)
+      new_post_image_tag = Tag.find_or_create_by(tag_name: new)
 #self.tags.push(post_image_tag)と一緒の意味になり、push()とは配列の要素を追加する場合に使います。
-      self.post_image_tags << new_post_image_tag
+      self.tags << new_post_image_tag
     end
-
+  end
 
 
 private
-	def image_exists?
-		errors.add(:image_id, ' must exists') unless image.present?
+  def image_exists?
+  	errors.add(:image_id, ' must exists') unless image.present?
 	end
 end
