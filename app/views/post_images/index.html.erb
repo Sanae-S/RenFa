@@ -41,10 +41,11 @@
         <% end %>
       </div>
       <div class="post-image-item__favorite">
-        <p>いいね♡</p>
+        <label >いいね:♡</label>
       </div>
       <div class="post-image-item__comment">
-        <p>コメント 件</p>
+         <label >コメント:</label>
+         <%= post_image.comments.count %>件
       </div>
       <div class="post-image-item__show">
       	<%= link_to "詳細", post_image_path(post_image) %>
