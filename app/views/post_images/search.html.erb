@@ -1,31 +1,34 @@
-<div class="index">
-  <% post_images.each do |post_image| %>
+<div class="search-tag">
+  <h2>投稿一覧</h2>
+  <br>
+  <div class="index">
+  <h2><%= @tag.tag_name %>一覧（全<%= @tag.post_images.count %>件）</h2>
+  <% @tag.post_images.each do |tag_item| %>
     <div class="post-image-item">
       <div class="post-image-item__image">
-        <%= attachment_image_tag post_image, :image, format: "jpeg", width:"500", height:"400" %>
+        <%= attachment_image_tag tag_item, :image, format: "jpeg", width:"500", height:"400" %>
       </div>
       <div class="post-image-item__user-name">
         <label >投稿者:</label>
-        <%= link_to user_path(post_image.user) do %>
-          <%= post_image.user.name %>
+        <%= link_to user_path(tag_item.user) do %>
+          <%= tag_item.user.name %>
         <% end %>
       </div>
       <div class="post-image-item__category">
         <label >カテゴリー:</label>
-        <!-- コンソールではでるpost_image.category.category_name -->
-         <%= post_image.category.category_name %>
+         <%= tag_item.category.category_name %>
       </div>
       <div class="post-image-item__category">
         <label >ペットのお名前:</label>
-        <%= post_image.animal_name %>
+        <%= tag_item.animal_name %>
       </div>
       <div class="post-image-item__introduction">
         <label >紹介文:</label>
-        <%= post_image.introduction %>
+        <%= tag_item.introduction %>
       </div>
       <div class="post-image-item__tag">
         <label >タグ:</label>
-        <% post_image.tags.each do |tag|%>
+        <% tag_item.tags.each do |tag|%>
           <%= link_to tag.tag_name, tag_post_images_path(tag_id: tag.id) %>
           <%= "(#{tag.post_images.count})" %>
         <% end %>
@@ -34,11 +37,12 @@
         <p>いいね♡</p>
       </div>
       <div class="post-image-item__comment">
-        <p>コメント 件</p>
+        <%= tag_item.comments.count %>
       </div>
       <div class="post-image-item__show">
-      	<%= link_to "詳細", post_image_path(post_image) %>
+      	<%= link_to "詳細", post_image_path(tag_item) %>
       </div>
     </div>
   <% end %>
+</div>
 </div>

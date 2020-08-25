@@ -22,7 +22,7 @@ class PostImagesController < ApplicationController
   end
 
   def index
-    @post_images = PostImage.all
+    @post_images = PostImage.all.page(params[:page]).per(5)
     @categories = Category.all
     @tag_list = Tag.all.page(params[:page]).per(5)  #ビューでタグ一覧を表示するために全取得。
   end
@@ -64,13 +64,14 @@ class PostImagesController < ApplicationController
     @category = Category.find(params[:category_id])
     # category_idと紐づく投稿を取得,5件でページネーション
     @category_items = @category.post_images.page(params[:page]).per(5)
+    @tag_list = Tag.all.page(params[:page]).per(5)
   end
 
   def search
     @tag_list = Tag.all.page(params[:page]).per(5)  #こっちの投稿一覧表示ページでも全てのタグを表示するために、タグを全取得
     @tag = Tag.find(params[:tag_id])  #クリックしたタグを取得
     @post_images = @tag.post_images.all   #クリックしたタグに紐付けられた投稿を全て表示
-    @post_image_tags = @post_image.tags
+    # @post_image_tags = @post_image.tags
   end
 
 
