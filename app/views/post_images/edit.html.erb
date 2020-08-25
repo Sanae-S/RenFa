@@ -1,7 +1,7 @@
 <div class="sidebar col-sm-3">
   <div class="">a</div>
 </div>
-<%= form_for(@post_image, url: post_image_path) do |f| %>
+<%= form_with(model: @post_image, url: post_image_path, local: true) do |f| %>
   <div class="post-image-form form-horizontal">
     <div class="post-image-form form-group">
       <% if @post_image.errors.any? %>
@@ -41,7 +41,11 @@
       <%= f.text_area :introduction, class:"form-control", rows:"3" %>
     </div>
   </div>
-
+  <div class="post-image-form__tag form-group">
+    <div class="col-sm-9">
+      <%= f.text_field :tag_name, value: @tag_list  %>
+    </div>
+  </div>
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
       <%= f.submit "送信", class:"btn btn-default" %>

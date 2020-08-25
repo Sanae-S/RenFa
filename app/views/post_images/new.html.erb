@@ -1,7 +1,14 @@
 <div class="sidebar col-sm-3">
-  <div class="">a</div>
+  <h3>＃タグリスト</h3>
+   <ul class="nav nav-pills nav-stacked">
+    <% @tag_list.each do |list| %>
+      <li><%= link_to list.tag_name, tag_post_images_path(tag_id: list.id) %>
+      <%= "(#{list.post_images.count})" %></li>
+    <% end %>
+    <%= paginate @tag_list %>
+  </ul>
 </div>
-<%= form_for(@post_image, url: post_images_path) do |f| %>
+<%= form_with(model: @post_image, url: post_images_path, local: true) do |f| %>
   <div class="post-image-form form-horizontal">
     <div class="post-image-form form-group">
       <% if @post_image.errors.any? %>
@@ -41,7 +48,15 @@
       <%= f.text_area :introduction, class:"form-control", rows:"3", placeholder:"ここにコメント" %>
     </div>
   </div>
-
+  <br>
+  <div class="post-image-form__tag form-group">
+    <label class="col-sm-3 control-label">タグ</label>
+    <div class="col-sm-9">
+      <p>スペースを挟むことで、複数のタグを登録できます。</p>
+      <%= f.text_field :tag_name, placeholder:"例：柴犬　オス　成犬" %>
+    </div>
+  </div>
+  <br>
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
       <%= f.submit "送信", class:"btn btn-default" %>

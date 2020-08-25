@@ -1,0 +1,47 @@
+<div class="search-tag">
+  <div class="index">
+    <h2><%= @tag.tag_name %>一覧（全<%= @tag.post_images.count %>件）</h2>
+    <% @tag.post_images.each do |tag_item| %>
+      <div class="post-image-item">
+        <div class="post-image-item__image">
+          <%= attachment_image_tag tag_item, :image, format: "jpeg", width:"500", height:"400" %>
+        </div>
+        <div class="post-image-item__user-name">
+          <label >投稿者:</label>
+          <%= link_to user_path(tag_item.user) do %>
+            <%= tag_item.user.name %>
+          <% end %>
+        </div>
+        <div class="post-image-item__category">
+          <label >カテゴリー:</label>
+           <%= tag_item.category.category_name %>
+        </div>
+        <div class="post-image-item__category">
+          <label >ペットのお名前:</label>
+          <%= tag_item.animal_name %>
+        </div>
+        <div class="post-image-item__introduction">
+          <label >紹介文:</label>
+          <%= tag_item.introduction %>
+        </div>
+        <div class="post-image-item__tag">
+          <label >タグ:</label>
+          <% tag_item.tags.each do |tag|%>
+            <%= link_to tag.tag_name, tag_post_images_path(tag_id: tag.id) %>
+            <%= "(#{tag.post_images.count})" %>
+          <% end %>
+        </div>
+        <div class="post-image-item__favorite">
+          <label >いいね:♡</label>
+        </div>
+        <div class="post-image-item__comment">
+          <label >コメント:</label>
+          <%= tag_item.comments.count %>件
+        </div>
+        <div class="post-image-item__show">
+          <%= link_to "詳細", post_image_path(tag_item) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

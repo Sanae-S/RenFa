@@ -30,7 +30,10 @@
       </div>
       <div class="post-image-item__tag">
         <label >タグ:</label>
-        <p>tag</p>
+        <% @post_image_tags.each do |tag|%>
+          <%= link_to tag.tag_name, tag_post_images_path(tag_id: tag.id), class:"label label-info" %>
+          <%= "(#{tag.post_images.count})" %>
+        <% end %>
       </div>
       <div class="post-image-item__favorite">
         <p>いいね♡</p>

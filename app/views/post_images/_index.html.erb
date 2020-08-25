@@ -1,15 +1,5 @@
-<div class="sidebar">
-  <h3>＃タグリスト</h3>
-   <ul class="nav nav-pills nav-stacked">
-    <% @tag_list.each do |list| %>
-      <li><%= link_to list.tag_name, tag_post_images_path(tag_id: list.id) %>
-      <%= "(#{list.post_images.count})" %></li>
-    <% end %>
-    <%= paginate @tag_list %>
-  </ul>
-</div>
 <div class="index">
-  <% @post_images.each do |post_image| %>
+  <% post_images.each do |post_image| %>
     <div class="post-image-item">
       <div class="post-image-item__image">
         <%= attachment_image_tag post_image, :image, format: "jpeg", width:"500", height:"400" %>
@@ -36,21 +26,19 @@
       <div class="post-image-item__tag">
         <label >タグ:</label>
         <% post_image.tags.each do |tag|%>
-          <%= link_to tag.tag_name, tag_post_images_path(tag_id: tag.id),class:"label label-info" %>
+          <%= link_to tag.tag_name, tag_post_images_path(tag_id: tag.id) %>
           <%= "(#{tag.post_images.count})" %>
         <% end %>
       </div>
       <div class="post-image-item__favorite">
-        <label >いいね:♡</label>
+        <p>いいね♡</p>
       </div>
       <div class="post-image-item__comment">
-         <label >コメント:</label>
-         <%= post_image.comments.count %>件
+        <p>コメント 件</p>
       </div>
       <div class="post-image-item__show">
       	<%= link_to "詳細", post_image_path(post_image) %>
       </div>
     </div>
   <% end %>
-  <%= paginate @post_images %>
 </div>

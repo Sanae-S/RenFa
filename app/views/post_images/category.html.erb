@@ -1,5 +1,12 @@
 <div class="sidebar">
-  <div class="">a</div>
+  <h3>＃タグリスト</h3>
+   <ul class="nav nav-pills nav-stacked">
+    <% @tag_list.each do |list| %>
+      <li><%= link_to list.tag_name, tag_post_images_path(tag_id: list.id) %>
+      <%= "(#{list.post_images.count})" %></li>
+    <% end %>
+    <%= paginate @tag_list %>
+  </ul>
 </div>
 <div class="index">
   <h2><%= @category.category_name %>一覧（全<%= @category_items.count %>件）</h2>
