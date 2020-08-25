@@ -1,11 +1,11 @@
 <div class="sidebar">
-  <ul class="nav nav-pills nav-stacked">
-    <li><a href="#"> test1</a></li>
-    <li><a href=""> test2</a></li>
-    <li><a href=""> test3</a></li>
-    <li><a href=""> test4</a></li>
-    <li><a href=""> test5</a></li>
-  </ul>
+  <h3>＃タグリスト</h3>
+  <% @tag_list.each do |list| %>
+    <ul class="nav nav-pills nav-stacked">
+      <li><%= link_to list.tag_name, tag_post_images_path(tag_id: list.id) %>
+      <%= "(#{list.posts.count})" %></li>
+    </ul>
+  <% end %>
 </div>
 <div class="index">
   <% @post_images.each do |post_image| %>
