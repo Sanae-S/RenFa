@@ -1,12 +1,5 @@
 <div class="sidebar col-sm-3">
-  <h3>＃タグリスト</h3>
-   <ul class="nav nav-pills nav-stacked">
-    <% @tag_list.each do |list| %>
-      <li><%= link_to list.tag_name, tag_post_images_path(tag_id: list.id) %>
-      <%= "(#{list.post_images.count})" %></li>
-    <% end %>
-    <%= paginate @tag_list %>
-  </ul>
+  <%= render partial: 'tagbar', locals: { tag_list: @tag_list } %>
 </div>
 <%= form_with(model: @post_image, url: post_images_path, local: true) do |f| %>
   <div class="post-image-form form-horizontal">

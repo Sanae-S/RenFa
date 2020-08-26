@@ -20,6 +20,7 @@ put "/users/:id/hide" => "users#hide", as: 'users_hide'
 
 resources :post_images do
   resources :comments, only: [:create, :destroy]
+  resource :favorites, only: [:create, :destroy]
 end
 root 'post_images#index'
 

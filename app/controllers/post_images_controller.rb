@@ -4,7 +4,7 @@ class PostImagesController < ApplicationController
 
   def new
     @post_image = PostImage.new
-    @tag_list = Tag.all.page(params[:page]).per(5)
+    @tag_list = Tag.all
   end
 
   def create
@@ -22,9 +22,9 @@ class PostImagesController < ApplicationController
   end
 
   def index
-    @post_images = PostImage.all.page(params[:page]).per(5)
+    @post_images = PostImage.order("id DESC").page(params[:page]).per(5)
     @categories = Category.all
-    @tag_list = Tag.all.page(params[:page]).per(5)  #ビューでタグ一覧を表示するために全取得。
+    @tag_list = Tag.all  #ビューでタグ一覧を表示するために全取得。
   end
 
   def show
@@ -38,6 +38,7 @@ class PostImagesController < ApplicationController
   def edit
     @post_image = PostImage.find(params[:id])
     @tag_list = @post_image.tags.pluck(:tag_name).split(/[[:blank:]]+/)
+    @tag_lists = Tag.all
   end
 
   def update
@@ -62,7 +63,7 @@ class PostImagesController < ApplicationController
     @category = Category.find(params[:category_id])
     # category_idと紐づく投稿を取得,5件でページネーション
     @category_items = @category.post_images.page(params[:page]).per(5)
-    @tag_list = Tag.all.page(params[:page]).per(5)
+    @tag_list = Tag.all
   end
 
   def search
