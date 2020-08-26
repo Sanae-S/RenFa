@@ -29,7 +29,7 @@ namespace :admin do
   resources :categories
   resources :users
 end
-
+#カテゴリーによって絞り込んだ投稿を表示するアクションへのルーティング
 get '/category/:category_id/post_images'=> 'post_images#category', as:'category_post_items'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -42,4 +42,5 @@ resources :messages, only: [:create, :edit, :update, :destroy]
     get 'post_images', to: 'post_images#search'
   end
 
+get "search" => "users#search"
 end

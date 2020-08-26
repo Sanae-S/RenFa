@@ -54,6 +54,10 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    
+  end
+
 private
   def user_params
     params.require(:user).permit(:name, :user_info, :email, :address, :admin)
