@@ -22,6 +22,12 @@
       <th>紹介文</th>
       <td><%= @user.user_info %></td>
     </tr>
+    <tr>
+      <th>DM</th>
+      <td>
+        <%#= render "users/contact",user: @post_image.user,haveRoom: @haveRoom, entry: @entry,room: @room, roomId:@post_image.user %>
+      </td>
+    </tr>
   </table>
   <div class="buttmn">
     <%= link_to '編集する', edit_user_path(user.id), class: "button btn btn-primary" %>

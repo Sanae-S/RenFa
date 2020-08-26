@@ -1,15 +1,15 @@
-<div class="">
+<div class="DM">
   <% if user_signed_in? %>
-    <% unless @user.id == current_user.id %>
-      <% if @haveRoom == true %>
-        <%= link_to "ダイレクトメッセージ", room_path(@roomId) %>
+    <% unless user.id == current_user.id %>
+      <% if haveRoom == true %>
+        <%= link_to "ダイレクトメッセージ", room_path(roomId),data: {"turbolinks" => false} %>
       <% else %>
-        <%= form_with(model:@room, local: true) do |f| %>
+        <%= form_with(model:room, local: true) do |f| %>
         <!-- entryテーブルに値を保存できるようにするため -->
-          <%= fields_for @entry do |e| %>
-            <%= e.hidden_field :user_id, value: @user.id %>
+          <%= fields_for entry do |e| %>
+            <%= e.hidden_field :user_id, value: user.id %>
           <% end %>
-          <%= f.submit "ダイレクトメッセージ" %>
+          <%= f.submit "ダイレクトメッセージ作成" %>
         <% end %>
       <% end %>
     <% end %>

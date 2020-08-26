@@ -1,2 +1,5 @@
-$('#chat_area').html("#{ j(render 'rooms/chat_area') }");
-$('#chat_form').html("#{ j(render 'rooms/chat_form') }");
+// $('#chat_area').html("#{ j(render 'rooms/chat_area') }");
+// $('#chat_form').html("#{ j(render 'rooms/chat_form') }");
+
+$('#chat_area').html("<%= j(render 'rooms/chat_area', { messages: @message.user.messages }) %>");
+$('#chat_form').html("<%= j(render 'rooms/chat_form', { messages: @message.user.messages }) %>");

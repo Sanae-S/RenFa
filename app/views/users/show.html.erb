@@ -24,7 +24,7 @@
     </tr>
   </table>
   <div class="DM">
-    <%= render "contact" %>
+    <%= render "contact",user: @user,haveRoom: @haveRoom, entry: @entry,room: @room ,roomId: @roomId%>
   </div>
   <div class="buttmn">
     <%= link_to '編集する', edit_user_path(@user.id), class: "button btn btn-primary" %>
