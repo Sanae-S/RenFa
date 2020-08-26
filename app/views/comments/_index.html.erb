@@ -8,7 +8,7 @@
   </p>
   <% comments.first(2).each do |comment| %>
     <% unless comment.id.nil? %>
-      <li class="comment__container">
+      <div class="comment__container">
         <div class="comment__text">
           <p><%= link_to "@#{comment.user.name}", user_path(comment.user.id) %></p>
             <div class="comment__entry">
@@ -23,14 +23,14 @@
               <%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
             </span>
         </div>
-      </li>
+      </div>
     <% end %>
   <% end %>
 <!-- コメント内容(3件目以降) ------------------------------------------------------------------>
     <div class="collapse" id="collapseSample1">
       <% comments.offset(2).each do |comment| %>
         <% unless comment.id.nil? %>
-          <li class="comment__container">
+          <div class="comment__container">
             <div class="comment__box">
               <div class="comment-text">
                 <p><%= link_to "@#{comment.user.name}", user_path(comment.user.id) %></p>
@@ -47,7 +47,7 @@
                 </span>
               </div>
             </div>
-          </li>
+          </div>
         <% end %>
       <% end %>
     </div>
