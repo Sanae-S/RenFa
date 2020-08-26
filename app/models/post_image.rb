@@ -38,6 +38,14 @@ class PostImage < ApplicationRecord
     end
   end
 
+  def PostImage.search(search, user_or_post_image)
+    if user_or_post_image == "2"
+    	#あいまい検索
+       PostImage.where(['animal_name LIKE ?', "%#{search}%"])
+    else
+       PostImage.all
+    end
+  end
 
 private
   def image_exists?

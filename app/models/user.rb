@@ -14,4 +14,13 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && (self.is_deleted == false)
   end
+
+  def User.search(search, user_or_post_image)
+    if user_or_post_image == "1"
+      #あいまい検索
+       User.where(['name LIKE ?', "%#{search}%"])
+    else
+       User.all
+    end
+  end
 end

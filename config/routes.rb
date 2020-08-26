@@ -41,6 +41,6 @@ resources :messages, only: [:create, :edit, :update, :destroy]
   resources :tags do
     get 'post_images', to: 'post_images#search'
   end
-
+#
 get "search" => "users#search"
 end
