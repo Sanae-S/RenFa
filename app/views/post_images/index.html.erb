@@ -1,12 +1,5 @@
 <div class="sidebar">
-  <h3>＃タグリスト</h3>
-   <ul class="nav nav-pills nav-stacked">
-    <% @tag_list.each do |list| %>
-      <li><%= link_to list.tag_name, tag_post_images_path(tag_id: list.id) %>
-      <%= "(#{list.post_images.count})" %></li>
-    <% end %>
-    <%= paginate @tag_list %>
-  </ul>
+  <%= render partial: 'tagbar', locals: { tag_list: @tag_list } %>
 </div>
 <div class="index">
   <% @post_images.each do |post_image| %>
@@ -41,7 +34,9 @@
         <% end %>
       </div>
       <div class="post-image-item__favorite">
-        <label >いいね:♡</label>
+        <div id="favorites_buttons_<%= post_image.id %>">
+             <%= render partial: 'favorites/favorite', locals: { post_image: post_image} %>
+        </div>
       </div>
       <div class="post-image-item__comment">
          <label >コメント:</label>

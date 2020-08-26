@@ -38,14 +38,14 @@
       <div class="post-image-item__favorite">
         <% if @post_image.favorited_by?(current_user) %>
           <li>
-            <%= link_to post_image_favorites_path(@post_image), method: :delete do %>
+            <%= link_to post_image_favorites_path(@post_image), method: :delete, remote: true do %>
               <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
               <%= @post_image.favorites.count %> いいね
             <% end %>
           </li>
           <% else %>
           <li>
-            <%= link_to post_image_favorites_path(@post_image), method: :post do %>
+            <%= link_to post_image_favorites_path(@post_image), method: :post, remote: true do %>
               <i class="fa fa-heart-o" aria-hidden="true"></i>
               <%= @post_image.favorites.count %> いいね
             <% end %>

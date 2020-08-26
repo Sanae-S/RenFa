@@ -1,5 +1,5 @@
 <div class="sidebar col-sm-3">
-  <div class="">a</div>
+  <%= render partial: 'tagbar', locals: { tag_list: @tag_lists } %>
 </div>
 <%= form_with(model: @post_image, url: post_image_path, local: true) do |f| %>
   <div class="post-image-form form-horizontal">
