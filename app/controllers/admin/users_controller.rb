@@ -21,14 +21,6 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-  def hide
-    @user = User.find(params[:id])
-    #is_deletedカラムにフラグを立てる
-    @user.update(is_deleted: true)
-    flash[:notice] = "退会させました。"
-    redirect_to request.referer
-  end
-
 private
 
   def user_params
