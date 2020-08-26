@@ -15,12 +15,23 @@ class User < ApplicationRecord
     super && (self.is_deleted == false)
   end
 
-  def User.search(search, user_or_post_image)
+  def User.search(search, user_or_post_image, how_search)
     if user_or_post_image == "1"
-      #あいまい検索
-       User.where(['name LIKE ?', "%#{search}%"])
-    else
-       User.all
+      if how_search == "1"
+        #あいまい検索
+              User.where(['name LIKE ?', "%#{search}%"])
+      elsif how_search == "2"
+        #後方一致検索
+              User.where(['name LIKE ?', "%#{search}"])
+      elsif how_search == "3"
+        #前方一致検索
+              User.where(['name LIKE ?', "#{search}%"])
+      elsif how_search == "4"
+        #完全一致検索
+              User.where(['name LIKE ?', "#{search}"])
+      else
+              User.all
+      end
     end
   end
 end

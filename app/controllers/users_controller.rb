@@ -56,11 +56,12 @@ class UsersController < ApplicationController
 
   def search
     @user_or_post_image = params[:option]
+    @how_search = params[:choice]
     if @user_or_post_image == "1"
       #テキストで入力された値と、選択された方の値を引数としてモデルに送る。
-      @users = User.search(params[:search], @user_or_post_image)
+      @users = User.search(params[:search], @user_or_post_image, @how_search)
     else
-      @post_images = PostImage.search(params[:search], @user_or_post_image)
+      @post_images = PostImage.search(params[:search], @user_or_post_image, @how_search)
     end
   end
 
