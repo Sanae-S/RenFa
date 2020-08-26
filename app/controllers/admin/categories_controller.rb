@@ -14,7 +14,7 @@ class Admin::CategoriesController < ApplicationController
       redirect_to admin_categories_path
     else
       @categories = Category.all
-      render 'index'
+      render admin_categories_path
     end
   end
 
@@ -26,13 +26,13 @@ class Admin::CategoriesController < ApplicationController
     if @category.update(category_params)
       redirect_to admin_categories_path
     else
-      render 'edit'
+      render edit_admin_category_path
     end
   end
 
   def destroy
     @category.destroy
-    redirect_to categories_path
+    redirect_to admin_categories_path
   end
 
   private
