@@ -38,9 +38,28 @@ class PostImage < ApplicationRecord
     end
   end
 
+    def PostImage.search(search, user_or_post_image, how_search)
+      if user_or_post_image == "2"
+        if how_search == "1"
+          #あいまい検索
+            PostImage.where(['animal_name LIKE ?', "%#{search}%"])
+        elsif how_search == "2"
+          #後方一致検索
+            PostImage.where(['animal_name LIKE ?', "%#{search}"])
+        elsif how_search == "3"
+          #前方一致検索
+            PostImage.where(['animal_name LIKE ?', "#{search}%"])
+        elsif how_search == "4"
+          #完全一致検索
+            PostImage.where(['animal_name LIKE ?', "#{search}"])
+        else
+            PostImage.all
+        end
+      end
+    end
 
 private
   def image_exists?
-  	errors.add(:image_id, ' must exists') unless image.present?
-	end
+    errors.add(:image_id, ' must exists') unless image.present?
+  end
 end

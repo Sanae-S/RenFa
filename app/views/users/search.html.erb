@@ -1,0 +1,45 @@
+<div class="search">
+  <% if @user_or_post_image == "1"%>
+    <h1>User</h1>
+      <table>
+        <% @users.each do |user| %>
+        <thead>
+          <tr>
+            <td>氏名</td>
+          </tr>
+        </thead>
+          <% @users.each do |user| %>
+            <tbody>
+              <tr>
+                <td>
+                  <%= link_to user_path(user) do %>
+                    <%= user.name %>
+                  <% end %>
+                </td>
+                <% end %>
+              </tr>
+            </tbody>
+        <% end %>
+      </table>
+
+  <% elsif @user_or_post_image == "2" %>
+      <h2>投稿</h2>
+      <table>
+      <% @post_images.each do |post_image| %>
+          <thead>
+              <tr>
+                  <th>
+                  	<%= link_to post_image_path(post_image) do %>
+                  	  <%= post_image.animal_name %>
+                  	<% end %>
+                  </th>
+                  <td>
+                    <%= attachment_image_tag post_image, :image, format: "jpeg", width:"300", height:"auto" %>
+                  </td>
+              </tr>
+          </thead>
+      <% end %>
+      </table>
+  <% else %>
+  <% end %>
+</div>
