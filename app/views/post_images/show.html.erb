@@ -36,26 +36,15 @@
         <% end %>
       </div>
       <div class="post-image-item__favorite">
-        <% if @post_image.favorited_by?(current_user) %>
-          <li>
-            <%= link_to post_image_favorites_path(@post_image), method: :delete, remote: true do %>
-              <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-              <%= @post_image.favorites.count %> いいね
-            <% end %>
-          </li>
-          <% else %>
-          <li>
-            <%= link_to post_image_favorites_path(@post_image), method: :post, remote: true do %>
-              <i class="fa fa-heart-o" aria-hidden="true"></i>
-              <%= @post_image.favorites.count %> いいね
-            <% end %>
-          </li>
+        <% if user_signed_in? %>
+           <%= render partial: 'favorites/favorite',data: {"turbolinks" => false}, locals: { post_image: @post_image} %>
+        <% else %>
+          <%= @post_image.favorites.count %> いいね
         <% end %>
       </div>
-      
       <% if current_user == @user || current_user.admin? %>
         <div class="post-image-item__butmun">
-          <%= link_to "Edit", edit_post_image_path(@post_image), class: "btn-sm btn-success edit_book_#{@post_image.id}" %>
+          <%= link_to "Edit", edit_post_image_path(@post_image),data: {"turbolinks" => false}, class: "btn-sm btn-success edit_book_#{@post_image.id}" %>
 
           <%= link_to "Destroy", post_image_path(@post_image), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_book_#{@post_image.id}" %>
         </div>
@@ -64,11 +53,11 @@
         <h4>コメント</h4>
         <div id="comments_area">
       <!-- 投稿されたコメント一覧を詳細ページに表示するためのrender -->
-          <%= render partial: 'comments/index', locals: { comments: @comments } %>
+          <%= render partial: 'comments/index',data: {"turbolinks" => false}, locals: { comments: @comments } %>
         </div>
         <% if user_signed_in? %>
       <!-- コメント入力欄を詳細ページに表示するためのrender -->
-          <%= render partial: 'comments/form', locals: { comment: @comment, post_image: @post_image } %>
+          <%= render partial: 'comments/form',data: {"turbolinks" => false}, locals: { comment: @comment, post_image: @post_image } %>
         <% end %>
       </div>
     </div>

@@ -21,7 +21,7 @@
           <!-- ユーザがログインしているか調べる -->
           <% if user_signed_in? %>
             <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
-            <li><%= link_to '新規投稿', new_post_image_path, class: "header-nav-item" %> </li>
+            <li><%= link_to '新規投稿', new_post_image_path,data: {"turbolinks" => false}, class: "header-nav-item" %> </li>
             <li><%= link_to 'Dogs', category_post_items_path(category_id: '1'), class: "header-nav-item" %></li>
             <li><%= link_to 'Cats', category_post_items_path(category_id: '2'), class: "header-nav-item" %></li>
             <li><%= link_to 'Others', category_post_items_path(category_id: '3'), class: "header-nav-item" %></li>

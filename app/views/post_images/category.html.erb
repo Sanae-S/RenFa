@@ -29,13 +29,19 @@
       </div>
       <div class="post-image-item__tag">
         <label >タグ:</label>
-        <p>tag</p>
+        <% category_item.tags.each do |tag|%>
+          <%= link_to tag.tag_name, tag_post_images_path(tag_id: tag.id),class:"label label-info" %>
+          <%= "(#{tag.post_images.count})" %>
+        <% end %>
       </div>
       <div class="post-image-item__favorite">
-        <p>いいね♡</p>
+        <div id="favorites_buttons_<%= category_item.id %>">
+             <%= render partial: 'favorites/favorite',data: {"turbolinks" => false}, locals: { post_image: category_item} %>
+        </div>
       </div>
       <div class="post-image-item__comment">
-        <p>コメント 件</p>
+        <label >コメント:</label>
+         <%= category_item.comments.count %>件
       </div>
       <div class="post-image-item__show">
       	<%= link_to "詳細", post_image_path(category_item) %>

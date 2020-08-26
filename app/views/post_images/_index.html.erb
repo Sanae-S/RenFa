@@ -1,5 +1,5 @@
-<div class="index">
-  <% post_images.each do |post_image| %>
+
+<% post_images.each do |post_image| %>
     <div class="post-image-item">
       <div class="post-image-item__image">
         <%= attachment_image_tag post_image, :image, format: "jpeg", width:"500", height:"400" %>
@@ -26,19 +26,22 @@
       <div class="post-image-item__tag">
         <label >タグ:</label>
         <% post_image.tags.each do |tag|%>
-          <%= link_to tag.tag_name, tag_post_images_path(tag_id: tag.id) %>
+          <%= link_to tag.tag_name, tag_post_images_path(tag_id: tag.id),class:"label label-info" %>
           <%= "(#{tag.post_images.count})" %>
         <% end %>
       </div>
       <div class="post-image-item__favorite">
-        <p>いいね♡</p>
+        <div id="favorites_buttons_<%= post_image.id %>">
+             <%= render partial: 'favorites/favorite',data: {"turbolinks" => false}, locals: { post_image: post_image} %>
+        </div>
       </div>
       <div class="post-image-item__comment">
-        <p>コメント 件</p>
+         <label >コメント:</label>
+         <%= post_image.comments.count %>件
       </div>
       <div class="post-image-item__show">
-      	<%= link_to "詳細", post_image_path(post_image) %>
+        <%= link_to "詳細", post_image_path(post_image),data: {"turbolinks" => false} %>
       </div>
     </div>
   <% end %>
-</div>
+  <%= paginate post_images %>
