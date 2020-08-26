@@ -4,7 +4,13 @@ class PostImage < ApplicationRecord
 	attachment :image
 	has_many :comments, dependent: :destroy
 	belongs_to :category
-	#投稿が削除されると同時に投稿とTagの関係が削除される。
+  has_many :favorites, dependent: :destroy
+  #引数で渡されたユーザidがFavoritesテーブル内に存在（exists?）するかどうかを調べる
+    def favorited_by?(user)
+      favorites.where(user_id: user.id).exists?
+    end
+
+  #投稿が削除されると同時に投稿とTagの関係が削除される。
 	has_many :tag_maps, dependent: :destroy
     has_many :tags, through: :tag_maps
 
