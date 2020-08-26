@@ -34,11 +34,6 @@
           <%= "(#{tag.post_images.count})" %>
         <% end %>
       </div>
-      <div class="post-image-item__favorite">
-        <div id="favorites_buttons_<%= category_item.id %>">
-             <%= render partial: 'favorites/favorite',data: {"turbolinks" => false}, locals: { post_image: category_item} %>
-        </div>
-      </div>
       <div class="post-image-item__comment">
         <label >コメント:</label>
          <%= category_item.comments.count %>件

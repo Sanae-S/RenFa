@@ -1,5 +1,5 @@
 class PostImagesController < ApplicationController
-
+  before_action :authenticate_user!, {only: [:edit, :update, :show]}
   before_action :set_categories, only: [:index, :new, :edit, :create,:update]
 
   def new
