@@ -1,4 +1,4 @@
-<div class="posts">
+<div class="posts" >
     <%= form_for @message do |f| %>
       <%= f.text_field :message, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
         <%= f.hidden_field :room_id, value: @room.id %>

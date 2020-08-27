@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+before_action :authenticate_user!, {only: [:edit, :update, :show]}
   def show
     @user = User.find(params[:id])
       if user_signed_in?
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
 
 
   def hide
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     #is_deletedカラムにフラグを立てる
     @user.update(is_deleted: true)
     #ログアウトさせる
@@ -67,6 +67,6 @@ class UsersController < ApplicationController
 
 private
   def user_params
-    params.require(:user).permit(:name, :user_info, :email, :address, :admin)
+    params.require(:user).permit(:name, :user_info, :email, :address, :admin, :is_deleted)
   end
 end

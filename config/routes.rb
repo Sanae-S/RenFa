@@ -14,8 +14,10 @@ Rails.application.routes.draw do
 
 root 'post_images#index'
 
-resources :users
-put "/users/:id/hide" => "users#hide", as: 'users_hide'
+resources :users do
+  put "/hide" => "users#hide", as: 'hide'
+  resources :post_images, only: [:index]
+end
 
 
 resources :post_images do

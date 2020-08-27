@@ -1,0 +1,36 @@
+<div class="user-show">
+  <div class="user-show__title">
+    <h2>会員詳細</h2>
+  </div>
+  <table class="user-show__table">
+    <tr>
+      <th>名前:</th>
+      <td><%= @user.name %></td>
+    </tr>
+    <tr>
+      <th>メールアドレス:</th>
+      <td><%= @user.email %></td>
+    </tr>
+    <tr>
+      <th>住所:</th>
+        <td><%= @user.address %></td>
+    </tr>
+    <tr>
+      <th>紹介文:</th>
+      <td><%= @user.user_info %></td>
+    </tr>
+    <tr>
+      <th>会員ステータス:</th>
+      <td class="is_deleted">
+        <% if @user.is_deleted == false %>
+        <div class="admin-is_deleted-false">有効会員</div>
+       <% else %>
+        <div class="admin-is_deleted-true">退会済み</div>
+      <% end %>
+      </td>
+    </tr>
+  </table>
+  <div>
+    <%= link_to '編集する', edit_admin_user_path(@user),class:" btn btn-primary admin-show-button" %>
+  </div>
+</div>

@@ -1,10 +1,14 @@
+<div class="sidebar">
+  <%= render partial: 'tagbar', locals: { tag_list: @tag_list } %>
+  </ul>
+</div>
 <div class="search-tag">
   <div class="index">
     <h2><%= @tag.tag_name %>一覧（全<%= @tag.post_images.count %>件）</h2>
     <% @tag.post_images.each do |tag_item| %>
       <div class="post-image-item">
         <div class="post-image-item__image">
-          <%= attachment_image_tag tag_item, :image, format: "jpeg", width:"500", height:"400" %>
+          <%= attachment_image_tag tag_item, :image, format: "jpeg", width:"700", height:"auto" %>
         </div>
         <div class="post-image-item__user-name">
           <label >投稿者:</label>

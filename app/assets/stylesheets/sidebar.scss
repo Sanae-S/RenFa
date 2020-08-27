@@ -1,5 +1,12 @@
 .sidebar{
-  background-color: palegreen;
-  flex-basis: 30%;
+  background-color: #d2b48c;
   margin-right: 10px;
+  float: left;
+  width: 300px;
+
+  .nav{
+  padding: 10px;
+  max-width: 200px;
+  }
+
 }

@@ -6,7 +6,7 @@
 <div class="post-image-show">
   <div class="post-image-item">
       <div class="post-image-item__image">
-        <%= attachment_image_tag @post_image, :image, format: "jpeg", width:"500", height:"400" %>
+        <%= attachment_image_tag @post_image, :image, format: "jpeg", width:"700", height:"auto" %>
       </div>
       <div class="post-image-item__user-name">
         <label >投稿者:</label>
@@ -35,7 +35,7 @@
           <%= "(#{tag.post_images.count})" %>
         <% end %>
       </div>
-      <div class="post-image-item__favorite">
+      <div class="post-image-item__favorite" id="favorites_buttons_<%= @post_image.id %>">
            <%= render partial: 'favorites/favorite',data: {"turbolinks" => false}, locals: { post_image: @post_image} %>
       </div>
       <% if current_user == @user || current_user.admin? %>

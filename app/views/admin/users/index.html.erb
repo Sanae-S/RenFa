@@ -1,0 +1,37 @@
+<%# 会員一覧画面 %>
+  <div class="users__index">
+    <h2>会員一覧</h2>
+  </div>
+  <div class="users__table">
+    <table class="table">
+      <thead>
+        <tr>
+          <td>会員ID</td>
+          <td>氏名</td>
+          <td>メールアドレス</td>
+          <td>ステータス</td>
+        </tr>
+      </thead>
+        <% @users.each do |user| %>
+          <tbody>
+            <tr>
+              <td><%= user.id %></td>
+              <td>
+                <%= link_to admin_user_path(user) do %>
+                  <%= user.name %>
+                <% end %>
+              </td>
+              <td><%= user.email %></td>
+              <% if user.is_deleted == false %>
+                <td>有効</td>
+              <% else %>
+                <td>退会済</td>
+              <% end %>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
+  </div>
+  <div class="kaminari">
+    <%= paginate @users %>
+  </div>
