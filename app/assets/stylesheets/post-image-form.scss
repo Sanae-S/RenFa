@@ -1,11 +1,10 @@
 .post-image-form{
-  display: flex;
-  flex-basis: 600px auto;
-  align-items: center;
+  float: right;
+  width: 100%;
+  margin: 10px;
   flex-direction: column;
 
   &__image{
-  width:100%;
   max-width: 500px;
   max-haight: auto;
   }

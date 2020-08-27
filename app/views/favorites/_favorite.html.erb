@@ -1,4 +1,4 @@
-<div class="post-image-item__favorite">
+
         <% if post_image.favorited_by?(current_user) %>
           <label>いいね:</label>
             <%= link_to post_image_favorites_path(post_image), method: :delete, remote: true do %>
@@ -12,4 +12,3 @@
               <%= post_image.favorites.count %>
             <% end %>
         <% end %>
-      </div>
