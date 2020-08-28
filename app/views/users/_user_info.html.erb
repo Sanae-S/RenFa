@@ -23,15 +23,10 @@
       <td><%= @user.user_info %></td>
     </tr>
     <tr>
-      <th>DM</th>
-      <td>
-        <%#= render "users/contact",user: @post_image.user,haveRoom: @haveRoom, entry: @entry,room: @room, roomId:@post_image.user %>
-      </td>
     </tr>
   </table>
   <div class="buttmn">
     <%= link_to '編集する', edit_user_path(user.id), class: "button btn btn-primary" %>
-    <%= link_to 'パスワードを変更する', edit_user_registration_path, class: "button btn btn-primary" %>
     <% if user_signed_in? && @user.id == current_user.id %>
       <%= link_to "退会", user_hide_path(current_user), method: :put, "data-confirm" => "本当に退会しますか？", class: "button btn btn-danger" %>
     <% end %>
