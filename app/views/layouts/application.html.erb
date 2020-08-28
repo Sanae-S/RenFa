@@ -21,23 +21,23 @@
           <!-- ユーザがログインしているか調べる -->
           <% if user_signed_in? %>
             <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
-            <li><%= link_to '新規投稿', new_post_image_path,data: {"turbolinks" => false}, class: "header-nav-item" %> </li>
+            <li><%= link_to '新規投稿', new_post_image_path,data: {"turbolinks" => false}, class: "header-nav-item fas fa-plus" %> </li>
             <% if current_user.admin? %>
-              <li><%= link_to 'カテゴリー', admin_categories_path, class: "header-nav-item" %></li>
-              <li><%= link_to 'Users', admin_users_path, class: "header-nav-item" %></li>
+              <li><%= link_to 'カテゴリー', admin_categories_path, class: "header-nav-item fas fa-book" %></li>
+              <li><%= link_to 'Users', admin_users_path, class: "header-nav-item fas fa-users" %></li>
             <% end %>
-            <li><%= link_to 'Dogs', category_post_items_path(category_id: '1'), class: "header-nav-item" %></li>
-            <li><%= link_to 'Cats', category_post_items_path(category_id: '2'), class: "header-nav-item" %></li>
-            <li><%= link_to 'Others', category_post_items_path(category_id: '3'), class: "header-nav-item" %></li>
-            <li><%= link_to 'マイページ', user_path(current_user.id), class: "header-nav-item" %> </li>
+            <li><%= link_to 'Dogs', category_post_items_path(category_id: '1'), class: "header-nav-item fas fa-bone" %></li>
+            <li><%= link_to 'Cats', category_post_items_path(category_id: '2'), class: "header-nav-item fas fa-paw" %></li>
+            <li><%= link_to 'Others', category_post_items_path(category_id: '3'), class: "header-nav-item fas fa-feather" %></li>
+            <li><%= link_to 'マイページ', user_path(current_user.id), class: "header-nav-item far fa-user" %> </li>
             <li><%= link_to "ログアウト", logout_path, class: 'glyphicon glyphicon-log-out logout header-nav-item' %></li>
           <% else %>
-            <li><%= link_to 'about', homes_about_path, class: "header-nav-item" %></li>
-            <li><%= link_to 'Dogs', category_post_items_path(category_id: '1'), class: "header-nav-item" %></li>
-            <li><%= link_to 'Cats', category_post_items_path(category_id: '2'), class: "header-nav-item" %></li>
-            <li><%= link_to 'Others', category_post_items_path(category_id: '3'), class: "header-nav-item" %></li>
-            <li><%= link_to "会員登録", new_user_registration_path, class: 'glyphicon glyphicon-edit sign_up header-nav-item' %> </li>
-            <li><%= link_to "ログイン", new_user_session_path, class: 'glyphicon glyphicon-log-in sign_in header-nav-item' %></li>
+            <li><%= link_to 'About', homes_about_path, class: "fas fa-info-circle header-nav-item" %></li>
+            <li><%= link_to 'Dogs', category_post_items_path(category_id: '1'), class: "header-nav-item fas fa-bone" %></li>
+            <li><%= link_to 'Cats', category_post_items_path(category_id: '2'), class: "header-nav-item fas fa-paw" %></li>
+            <li><%= link_to 'Others', category_post_items_path(category_id: '3'), class: "header-nav-item fas fa-feather" %></li>
+            <li><%= link_to "会員登録", new_user_registration_path, class: 'fas fa-user-plus header-nav-item' %> </li>
+            <li><%= link_to "ログイン", new_user_session_path, class: 'fas fa-sign-in-alt header-nav-item' %></li>
           <% end %>
         </ul>
         <div class="search-form">

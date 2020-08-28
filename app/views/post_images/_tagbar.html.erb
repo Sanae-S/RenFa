@@ -1,8 +1,8 @@
 <div class="sidebar">
-  <h3>＃タグリスト</h3>
+  <h3 class="fas fa-hashtag">タグリスト</h3>
    <div class="nav nav-pills nav-stacked">
     <% tag_list.each do |list| %>
-      <p>#<%= link_to list.tag_name, tag_post_images_path(tag_id: list.id) %>
+      <p><%= link_to list.tag_name, tag_post_images_path(tag_id: list.id), class:"fas fa-hashtag" %>
       <%= "(#{list.post_images.count})" %></p>
     <% end %>
   </div>
