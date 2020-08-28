@@ -1,0 +1,11 @@
+<!-- user index -->
+<div class="sidebar">
+  <%= render partial: 'users/user_info', locals: { user: @user } %>
+  </ul>
+</div>
+<div class="user-posts">
+  <div class="index">
+    <h2><%= @user_name %>一覧（全<%= @user.post_images.count %>件）</h2>
+    <%= render partial: 'index', locals: { post_images: @post_images } %>
+  </div>
+</div>

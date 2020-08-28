@@ -16,8 +16,8 @@ root 'post_images#index'
 
 resources :users do
   put "/hide" => "users#hide", as: 'hide'
-  resources :post_images, only: [:index]
 end
+get '/users/:user_id/post_images'=> 'post_images#user_posts', as:'user_posts'
 
 
 resources :post_images do
