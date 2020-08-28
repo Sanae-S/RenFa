@@ -34,12 +34,11 @@ $(function() {
     }
 
     // 画像表示
-    var reader = new FileReader();
-    reader.onload = function() {
-      var img_src = $('<img>').attr('src', reader.result);
-      $('span').html(img_src);
+   var fileReader = new FileReader();
+    fileReader.onloadend = function() {
+      $('#preview-image').html('<img src="' + fileReader.result + '"width="300" height="auto">');
     }
-    reader.readAsDataURL(file);
+    fileReader.readAsDataURL(file);
   });
 });
 
