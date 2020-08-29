@@ -16,7 +16,7 @@
       <% end %>
   </div>
   <div class="post-image-form__image form-group">
-    <div class="col-sm-9 col-sm-offset-3">
+    <div class="col-sm-9">
     	<!-- 「, multiple: true」複数画像選択 -->
       <%= f.attachment_field :image %>
       <%= attachment_image_tag @post_image, :image, format: "jpg" %>
@@ -51,7 +51,7 @@
     </div>
   </div>
   <br>
-  <div class="form-group">
+  <div class="post-image-form__button form-group">
     <div class="col-sm-offset-3 col-sm-9">
       <%= f.submit "送信", class:"btn btn-default" %>
     </div>

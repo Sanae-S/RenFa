@@ -2,8 +2,9 @@
   <%= render partial: 'tagbar', locals: { tag_list: @tag_list } %>
   </ul>
 </div>
-<div class="index">
-  <h2><%= @category.category_name %>一覧（全<%= @category_items.count %>件）</h2>
+<div class="post_image-category-index">
+  <h2 class="post_image-category-index__title"><%= @category.category_name %>一覧（全<%= @category_items.count %>件）</h2>
+  <br>
   <% @category_items.each do |category_item| %>
     <div class="post-image-item">
       <div class="post-image-item__image">
@@ -39,7 +40,7 @@
          <%= category_item.comments.count %>件
       </div>
       <div class="post-image-item__show">
-      	<%= link_to "詳細", post_image_path(category_item) %>
+      	<%= link_to "詳細", post_image_path(category_item), class:"button btn btn-warning" %>
       </div>
     </div>
   <% end %>

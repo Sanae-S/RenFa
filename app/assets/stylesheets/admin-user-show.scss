@@ -1,0 +1,17 @@
+.admin-user-show{
+  
+  &__title{
+  }
+
+  &__table{
+  }
+
+  &__is_deleted{
+
+    &--false{
+    }
+
+    &--true{
+    }
+  }
+}

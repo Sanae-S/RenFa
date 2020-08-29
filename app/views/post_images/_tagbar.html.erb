@@ -1,9 +1,8 @@
-<div class="sidebar">
-  <h3 class="fas fa-hashtag">タグリスト</h3>
-   <div class="nav nav-pills nav-stacked">
-    <% tag_list.each do |list| %>
-      <p><%= link_to list.tag_name, tag_post_images_path(tag_id: list.id), class:"fas fa-hashtag" %>
-      <%= "(#{list.post_images.count})" %></p>
-    <% end %>
-  </div>
+<!-- sidebar user#show,post_image#user_post以外 -->
+<h3 class="tagbar fas fa-hashtag">タグリスト</h3>
+<div class="tagbar__item">
+<% tag_list.each do |list| %>
+  <p><%= link_to list.tag_name, tag_post_images_path(tag_id: list.id), class:"fas fa-hashtag" %>
+  <%= "(#{list.post_images.count})" %></p>
+<% end %>
 </div>

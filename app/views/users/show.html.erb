@@ -23,11 +23,12 @@
       <td><%= @user.user_info %></td>
     </tr>
   </table>
-  <div class="DM">
+  <div class="user-show__DM">
     <%= render "contact",user: @user,haveRoom: @haveRoom, entry: @entry,room: @room ,roomId: @roomId%>
   </div>
-  <div class="buttmn">
-    <%= link_to '投稿一覧', user_post_images_path(@user.id), class: "button btn btn-success" %>
+  <br>
+  <div class="user-show__buttmn">
+    <%= link_to '投稿一覧', user_posts_path(@user.id), class: "button btn btn-success" %>
     <%= link_to '編集する', edit_user_path(@user.id), class: "button btn btn-primary" %>
     <%= link_to 'パスワードを変更する', edit_user_registration_path, class: "button btn btn-primary" %>
     <% if user_signed_in? && @user.id == current_user.id %>

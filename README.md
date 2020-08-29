@@ -30,10 +30,13 @@
 詳細設計
 https://docs.google.com/spreadsheets/d/1kud66mTRPjKk-vBFWTlCOBtSbmrS8u-L1ffHB1nUmHo/edit#gid=822203042
 
-ER図
-https://drive.google.com/file/d/1zBNArJzKvqiq9oq3k5CYGWm88mNAZFHJ/view?usp=sharing
+##ワイヤーフレーム
+https://drive.google.com/file/d/16v-P0TIQ-YpJiWODGu7nuQ_24yn7BHx4/view?usp=sharing
 
-テーブル一覧
+##ER図
+https://drive.google.com/file/d/1EXh4njIKo-OSSYC0efWbadpesheOMs_h/view?usp=sharing
+
+##テーブル一覧
 https://docs.google.com/spreadsheets/d/13yGmqGXRnHOyQRL2cDb_HXY7IEvTQZAb/edit#gid=1020123394
 
 ### 機能一覧

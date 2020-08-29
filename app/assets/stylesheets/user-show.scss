@@ -1,4 +1,4 @@
-.user-show{ 
+.user-show{
   display: flex;
   flex-direction: column;
 
@@ -6,8 +6,10 @@
     font-size: 20px;
     justify-content: space-around;
    }
-   .button{
-    min-width: 100px;
-    max-height: 35px;
+
+   &__DM{
+   }
+
+   &__button{
   }
 }
