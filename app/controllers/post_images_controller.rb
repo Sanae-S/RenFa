@@ -73,6 +73,10 @@ class PostImagesController < ApplicationController
     # @post_image_tags = @post_image.tags
   end
 
+  def user_posts
+    @user = User.find(params[:user_id])
+    @post_images = @user.post_images.order("id DESC").page(params[:page]).per(5)
+  end
 
   private #複数画像をアップするために配列にする。, :images[]
   def post_image_params

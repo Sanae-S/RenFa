@@ -1,3 +1,28 @@
-.post_image-item{
-	width: 70%;
+.post-image-item{
+  border: ridge 5px;
+  padding: 10px;
+  margin: 5px;
+  color: #814721;
+
+  &__image{
+  }
+
+  &__user-name{
+  }
+
+  &__category{
+  }
+
+  &__introduction{
+  }
+
+  &__tag{
+  }
+
+  &__comment{
+  }
+
+  &__show{
+  }
+
 }

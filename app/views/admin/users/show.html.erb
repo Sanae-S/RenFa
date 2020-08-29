@@ -1,8 +1,8 @@
-<div class="user-show">
-  <div class="user-show__title">
+<div class="admin-user-show">
+  <div class="admin-user-show__title">
     <h2>会員詳細</h2>
   </div>
-  <table class="user-show__table">
+  <table class="admin-user-show__table">
     <tr>
       <th>名前:</th>
       <td><%= @user.name %></td>
@@ -21,11 +21,11 @@
     </tr>
     <tr>
       <th>会員ステータス:</th>
-      <td class="is_deleted">
+      <td class="admin-user-show__is_deleted">
         <% if @user.is_deleted == false %>
-        <div class="admin-is_deleted-false">有効会員</div>
+        <div class="admin-user-show__is_deleted--false">有効会員</div>
        <% else %>
-        <div class="admin-is_deleted-true">退会済み</div>
+        <div class="admin-user-show__is_deleted--true">退会済み</div>
       <% end %>
       </td>
     </tr>

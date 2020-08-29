@@ -1,11 +1,21 @@
 .post-image-form{
-  float: right;
-  width: 100%;
-  margin: 10px;
   flex-direction: column;
 
   &__image{
-  max-width: 500px;
-  max-haight: auto;
+    }
+
+  &__category{
+  }
+
+  &__animal_name{
+  }
+
+  &__comment{
+  }
+
+  &__tag{
+  }
+
+  &__button{
   }
 }

@@ -1,8 +1,10 @@
 <%# 会員一覧画面 %>
-  <div class="users__index">
+<div class="admin-users-index">
+  <div class="admin-users-index__title">
     <h2>会員一覧</h2>
   </div>
-  <div class="users__table">
+  <br>
+  <div class="admin-users-index__table">
     <table class="table">
       <thead>
         <tr>
@@ -35,3 +37,4 @@
   <div class="kaminari">
     <%= paginate @users %>
   </div>
+</div>

@@ -3,7 +3,7 @@
   </ul>
 </div>
 <div class="search-tag">
-  <div class="index">
+  <div class="search-tag__index">
     <h2><%= @tag.tag_name %>一覧（全<%= @tag.post_images.count %>件）</h2>
     <% @tag.post_images.each do |tag_item| %>
       <div class="post-image-item">
@@ -40,7 +40,7 @@
           <%= tag_item.comments.count %>件
         </div>
         <div class="post-image-item__show">
-          <%= link_to "詳細", post_image_path(tag_item) %>
+          <%= link_to "詳細", post_image_path(tag_item), class:"button btn btn-warning" %>
         </div>
       </div>
     <% end %>

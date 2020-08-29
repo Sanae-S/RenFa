@@ -1,4 +1,4 @@
-
+<!-- 投稿一覧のテンプレート -->
 <% post_images.each do |post_image| %>
     <div class="post-image-item">
       <div class="post-image-item__image">
@@ -35,7 +35,7 @@
          <%= post_image.comments.count %>件
       </div>
       <div class="post-image-item__show">
-        <%= link_to "詳細", post_image_path(post_image),data: {"turbolinks" => false} %>
+        <%= link_to "詳細", post_image_path(post_image),data: {"turbolinks" => false}, class:"button btn btn-warning" %>
       </div>
     </div>
   <% end %>

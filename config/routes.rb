@@ -16,8 +16,8 @@ root 'post_images#index'
 
 resources :users do
   put "/hide" => "users#hide", as: 'hide'
-  resources :post_images, only: [:index]
 end
+get '/users/:user_id/post_images'=> 'post_images#user_posts', as:'user_posts'
 
 
 resources :post_images do
@@ -28,7 +28,7 @@ root 'post_images#index'
 
 resources :categories, only: [:index]
 
-namespace :admin do
+namespace :admin do #管理者のみカテゴリー追加編集、会員の退会処理を行うため
   resources :categories
   resources :users
 end
@@ -38,12 +38,12 @@ get '/category/:category_id/post_images'=> 'post_images#category', as:'category_
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 resources :rooms, only: [:index, :create, :show]
-resources :messages, only: [:create, :edit, :update, :destroy]
+resources :messages, only: [:create, :update, :destroy]
 
 #タグによって絞り込んだ投稿を表示するアクションへのルーティング
   resources :tags do
     get 'post_images', to: 'post_images#search'
   end
-#
+#ユーザーごとの投稿一覧用
 get "search" => "users#search"
 end
