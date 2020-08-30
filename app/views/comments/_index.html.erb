@@ -14,7 +14,7 @@
             <div class="comment__entry">
               <%= comment.content %>
               <% if comment.user == current_user %>
-                <%= link_to post_image_comments_path(comment.post_image_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
+                <%= link_to post_image_comment_path(comment.post_image_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
                   <i class="fas fa-trash" style="color: black;"></i>
                 <% end %>
               <% end %>
