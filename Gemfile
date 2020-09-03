@@ -35,6 +35,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
