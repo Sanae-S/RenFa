@@ -35,7 +35,7 @@
           <%= "(#{tag.post_images.count})" %>
         <% end %>
       </div>
-      <div class="post-image-item__favorite" id="favorites_buttons_<%= @post_image.id %>">
+      <div class="post-image-item__favorite">
            <%= render partial: 'favorites/favorite',data: {"turbolinks" => false}, locals: { post_image: @post_image} %>
       </div>
       <% if current_user == @user || current_user.admin? %>

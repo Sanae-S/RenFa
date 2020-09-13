@@ -1,2 +1,2 @@
 // #favorites_buttons_<%= @post_image.id %>この部分のHTMLだけ、renderで部分的に更新するという処理です
-$('#favorites_buttons_<%= @post_image.id %>').html("<%= j(render partial: 'favorites/favorite', locals: {post_image: @post_image}) %>");
+$('.post-image-item__favorite').html("<%= j(render partial: 'favorites/favorite', locals: {post_image: @post_image}) %>");
