@@ -1,42 +1,40 @@
 <!-- 投稿一覧のテンプレート -->
-<% post_images.each do |post_image| %>
-    <div class="post-image-item">
-      <div class="post-image-item__image">
-        <%= attachment_image_tag post_image, :image, format: "jpeg", width:"700", height:"auto" %>
-      </div>
-      <div class="post-image-item__user-name">
-        <label >投稿者:</label>
-        <%= link_to user_path(post_image.user) do %>
-          <%= post_image.user.name %>
-        <% end %>
-      </div>
-      <div class="post-image-item__category">
-        <label >カテゴリー:</label>
-        <!-- コンソールではでるpost_image.category.category_name -->
-         <%= post_image.category.category_name %>
-      </div>
-      <div class="post-image-item__category">
-        <label >ペットのお名前:</label>
-        <%= post_image.animal_name %>
-      </div>
-      <div class="post-image-item__introduction">
-        <label >紹介文:</label>
-        <%= post_image.introduction %>
-      </div>
-      <div class="post-image-item__tag">
-        <label >タグ:</label>
-        <% post_image.tags.each do |tag|%>
-          <%= link_to tag.tag_name, tag_post_images_path(tag_id: tag.id),class:"label label-info" %>
-          <%= "(#{tag.post_images.count})" %>
-        <% end %>
-      </div>
-      <div class="post-image-item__comment">
-         <label >コメント:</label>
-         <%= post_image.comments.count %>件
-      </div>
-      <div class="post-image-item__show">
-        <%= link_to "詳細", post_image_path(post_image),data: {"turbolinks" => false}, class:"button btn btn-warning" %>
-      </div>
-    </div>
-  <% end %>
-  <%= paginate post_images %>
+<div class="post-image-item">
+  <div class="post-image-item__image">
+    <%= attachment_image_tag post_image, :image, format: "jpeg", width:"700", height:"auto" %>
+  </div>
+  <div class="post-image-item__user-name">
+    <label >投稿者:</label>
+    <%= link_to user_path(post_image.user) do %>
+      <%= post_image.user.name %>
+    <% end %>
+  </div>
+  <div class="post-image-item__category">
+    <label >カテゴリー:</label>
+    <!-- コンソールではでるpost_image.category.category_name -->
+     <%= post_image.category.category_name %>
+  </div>
+  <div class="post-image-item__category">
+    <label >ペットのお名前:</label>
+    <%= post_image.animal_name %>
+  </div>
+  <div class="post-image-item__introduction">
+    <label >紹介文:</label>
+    <%= post_image.introduction %>
+  </div>
+  <div class="post-image-item__tag">
+    <label >タグ:</label>
+    <% post_image.tags.each do |tag|%>
+      <%= link_to tag.tag_name, tag_post_images_path(tag_id: tag.id),class:"label label-info" %>
+      <%= "(#{tag.post_images.count})" %>
+    <% end %>
+  </div>
+  <div class="post-image-item__comment">
+     <label >コメント:</label>
+     <%= post_image.comments.count %>件
+  </div>
+  <div class="post-image-item__show">
+    <%= link_to "詳細", post_image_path(post_image),data: {"turbolinks" => false}, class:"button btn btn-warning" %>
+  </div>
+</div>
+  <%= paginate @post_images %>

@@ -2,5 +2,5 @@
   <%= render partial: 'tagbar', locals: { tag_list: @tag_list } %>
 </div>
 <div class="post_image-index">
-  <%= render partial: 'index', locals: { post_images: @post_images } %>
+  <%= render partial: 'index', collection: @post_images, as: :post_image %>
 </div>
