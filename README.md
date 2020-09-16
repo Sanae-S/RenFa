@@ -3,7 +3,7 @@
 
 ## サイト概要
 ペットの里親探しサイト。  
-条件をクリアすれば引き取ることも可能な、ふれあいカフェを経営している人のサイトを想定しています。 
+条件をクリアすれば引き取ることも可能な、ふれあいカフェを経営している人のサイトを想定しています。  
 引取の際のやり取りは、コメントか可能であればDMでできるように実装します。  
 メインはカフェのメンバー紹介。画像と、犬、猫などのジャンル登録、紹介文を投稿する。  
 タグ付け昨日も実装した場合、犬種などのタグを付け、タグで絞り込む機能もつける余裕があれば、実装します。  
@@ -41,3 +41,19 @@ https://docs.google.com/spreadsheets/d/13yGmqGXRnHOyQRL2cDb_HXY7IEvTQZAb/edit#gi
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1Bwhw4nPSSRVUj7hQZSrJBvo4JUvz407r6XpfyW7k2oY/edit#gid=0
+
+## 使用言語・技術
+###言語
+HTML/SCSS/JavaScript Ruby 2.5.7
+
+###技術
+####フレームワーク
+Rails 5.2.4
+
+####ライブラリ
+jQuery 1.12.4
+
+
+####インフラ
+vagrant AWS(EC2/RDS/Route53) gem(devise/refile/refile-mini_magick/kaminari/dotenv/bootstrap-sass) MySQL 5.7.22
+
