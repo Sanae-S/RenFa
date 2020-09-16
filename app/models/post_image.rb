@@ -1,9 +1,9 @@
 class PostImage < ApplicationRecord
 
-	belongs_to :user
-	attachment :image
-	has_many :comments, dependent: :destroy
-	belongs_to :category
+  belongs_to :user
+  attachment :image
+  has_many :comments, dependent: :destroy
+  belongs_to :category
   has_many :favorites, dependent: :destroy
   #引数で渡されたユーザidがFavoritesテーブル内に存在（exists?）するかどうかを調べる
     def favorited_by?(user)
@@ -11,13 +11,13 @@ class PostImage < ApplicationRecord
     end
 
   #投稿が削除されると同時に投稿とTagの関係が削除される。
-	has_many :tag_maps, dependent: :destroy
+  has_many :tag_maps, dependent: :destroy
     has_many :tags, through: :tag_maps
 
-	# introduction がそんざいしなければいけない
-	validates :introduction, presence: true
-	validate :image_exists?
-	validates :animal_name, length: { minimum: 1 }
+  # introduction がそんざいしなければいけない
+  validates :introduction, presence: true
+  validate :image_exists?
+  validates :animal_name, length: { minimum: 1 }
 
   def save_tag(sent_tags)
     #selfはクラス内部で書かれる場合、そのクラスのインスタンス変数の参照に利用される。

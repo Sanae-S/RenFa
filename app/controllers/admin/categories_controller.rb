@@ -3,8 +3,8 @@ class Admin::CategoriesController < ApplicationController
   before_action :set_category, only: [:edit, :update, :destroy]
 
   def index
-  	@category = Category.new
-  	@categories = Category.all
+    @category = Category.new
+    @categories = Category.all
 
   end
 
@@ -19,7 +19,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def edit
-  	@category = Category.find(params[:id])
+    @category = Category.find(params[:id])
   end
 
   def update

@@ -33,25 +33,25 @@ class MessagesController < ApplicationController
 
 
     def set_room
-    	#form_withで送られたroom_idの情報を取得
+      #form_withで送られたroom_idの情報を取得
         @room = Room.find(params[:message][:room_id])
     end
 
     def set_message
-    	#form_withで送られたroom_idの情報を取得
+      #form_withで送られたroom_idの情報を取得
         @message = Message.find(params[:id])
     end
 
     #非同期通信する場合は,一覧表示のため,この記述が必ず必要
     def gets_entries_all_messages
-    	#メッセージを全件取得
+      #メッセージを全件取得
         @messages = @room.messages.includes(:user).order("created_at asc")
         #ルームに参加してる人たち
         @entries = @room.entries
     end
 
     def message_params
-    	#新しく送られたメッセージを取得
+      #新しく送られたメッセージを取得
         params.require(:message).permit(:user_id, :message, :room_id).merge(user_id: current_user.id)
     end
 end

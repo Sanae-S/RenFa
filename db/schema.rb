@@ -31,8 +31,6 @@ ActiveRecord::Schema.define(version: 2020_08_26_131458) do
     t.integer "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_entries_on_room_id"
-    t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -48,8 +46,6 @@ ActiveRecord::Schema.define(version: 2020_08_26_131458) do
     t.text "message", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_messages_on_room_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "post_images", force: :cascade do |t|
@@ -72,8 +68,6 @@ ActiveRecord::Schema.define(version: 2020_08_26_131458) do
     t.integer "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_image_id"], name: "index_tag_maps_on_post_image_id"
-    t.index ["tag_id"], name: "index_tag_maps_on_tag_id"
   end
 
   create_table "tags", force: :cascade do |t|

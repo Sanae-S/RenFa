@@ -20,7 +20,7 @@ class RoomsController < ApplicationController
         @room = Room.find(params[:id])
         #Entriesテーブルに情報があるか確認
         if Entry.where(user_id: current_user.id, room_id: @room.id).present?
-        	#@roomの全てのメッセージを取得
+            #@roomの全てのメッセージを取得
             @messages = @room.messages.includes(:user).order("created_at asc")
             @message = Message.new
             #@entriesに@roomに参加してる（Entriesテーブルでヒットした情報、またはエントリーしてる）ユーザーを取得
