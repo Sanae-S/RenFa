@@ -1,26 +1,26 @@
-<div class="admin-user-show">
-  <div class="admin-user-show__title">
+<div class="admin-user-show col-xs-10">
+  <div class="admin-user-show__title col-xs-offset-5">
     <h2>会員詳細</h2>
   </div>
-  <table class="admin-user-show__table">
+  <table class="admin-user-show__table col-xs-12">
     <tr>
-      <th>名前:</th>
+      <th class="col-xs-4">名前:</th>
       <td><%= @user.name %></td>
     </tr>
     <tr>
-      <th>メールアドレス:</th>
+      <th class="col-xs-4">メールアドレス:</th>
       <td><%= @user.email %></td>
     </tr>
     <tr>
-      <th>住所:</th>
+      <th class="col-xs-4">住所:</th>
         <td><%= @user.address %></td>
     </tr>
     <tr>
-      <th>紹介文:</th>
+      <th class="col-xs-4">紹介文:</th>
       <td><%= @user.user_info %></td>
     </tr>
     <tr>
-      <th>会員ステータス:</th>
+      <th class="col-xs-4">会員ステータス:</th>
       <td class="admin-user-show__is_deleted">
         <% if @user.is_deleted == false %>
         <div class="admin-user-show__is_deleted--false">有効会員</div>
@@ -30,7 +30,7 @@
       </td>
     </tr>
   </table>
-  <div>
+  <div class="col-xs-offset-5">
     <%= link_to '編集する', edit_admin_user_path(@user),class:" btn btn-primary admin-show-button" %>
   </div>
 </div>

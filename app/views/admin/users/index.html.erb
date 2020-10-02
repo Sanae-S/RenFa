@@ -1,5 +1,5 @@
 <%# 会員一覧画面 %>
-<div class="admin-users-index">
+<div class="admin-users-index col-xs-10">
   <div class="admin-users-index__title">
     <h2>会員一覧</h2>
   </div>
@@ -8,10 +8,10 @@
     <table class="table">
       <thead>
         <tr>
-          <td>会員ID</td>
-          <td>氏名</td>
-          <td>メールアドレス</td>
-          <td>ステータス</td>
+          <td class="col-xs-1">会員ID</td>
+          <td class="col-xs-3">氏名</td>
+          <td class="col-xs-6">メールアドレス</td>
+          <t class="col-xs-2">ステータス</td>
         </tr>
       </thead>
         <% @users.each do |user| %>
