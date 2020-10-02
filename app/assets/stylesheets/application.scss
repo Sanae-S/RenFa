@@ -19,12 +19,12 @@
 body{
   display: flex;
   flex-direction: column;
-	width:100%;
+  width:100%;
   min-height: 100vh;
-	background-color: #fffaf0;
-	justify-content: space-between;
-	padding: 0;
-	merge: 0;
+  background-color: #fffaf0;
+  justify-content: space-between;
+  padding: 0;
+  merge: 0;
 }
 
 header{
@@ -32,7 +32,6 @@ header{
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 70px;
   background-color: #deb887;
 }
 
