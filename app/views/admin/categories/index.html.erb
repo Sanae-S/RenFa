@@ -1,7 +1,7 @@
 <div class="category-new">
-  <h3 class="caregory-new__label">カテゴリー追加</h3>
+  <h3 class="caregory-new__label col-xs-12">カテゴリー追加</h3>
   <br>
-  <div class="category-new__form">
+  <div class="category-new__form col-xs-12">
     <%= form_with model: @category, url: admin_categories_path, local: true do |f| %>
       <%= f.label :category_name, 'カテゴリー名' %>
       <%= f.text_field :category_name, class:'form-control' %>
@@ -11,8 +11,8 @@
   </div>
 </div>
 <div class="admin-category-index">
-  <h3 class="admin-caregory-index__label">カテゴリー一覧</h3>
-  <table class="admin-category-index__table">
+  <h3 class="admin-caregory-index__label col-xs-12">カテゴリー一覧</h3>
+  <table class="admin-category-index__table col-xs-12">
     <thead>
        <tr>
          <th>カテゴリー名</th>
@@ -24,7 +24,7 @@
     <tbody>
       <% @categories.each do |category| %>
         <tr>
-          <td><%= category.category_name %></td>
+          <td class="col-xs-8"><%= category.category_name %></td>
           <td><%= link_to '編集', edit_admin_category_path(category), class: 'btn-sm btn-primary' %></td>
           <td><%= link_to '削除', admin_category_path(category), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn-sm btn-danger' %></td>
         </tr>
